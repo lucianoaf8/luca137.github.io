@@ -3,82 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luciano Almeida - Data Analyst & AI Developer</title>
+    <title>Luca137 - Data Science & AI Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Luciano Almeida</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        <div class="logo">
+            <img src="imgs/logo-no-background.png" alt="Luca137 Logo">
         </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <section id="hero">
-        <div class="hero-content">
-            <h2>Data Analyst & AI Developer</h2>
-            <p>Automating the future with Python and AI</p>
-            <a href="#about" class="btn">Learn More</a>
-        </div>
-    </section>
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I'm Luciano, a Data Analyst and aspiring AI Developer. I specialize in Python, data analysis, GPT creation, and AI development. I create bots and Python scripts to automate various tasks.</p>
-        </div>
-    </section>
-    <section id="skills">
-        <div class="container">
+    <main>
+        <section id="about">
+            <div class="about-content">
+                <div class="profile-image">
+                    <img src="imgs/github profile image.jpeg" alt="Profile Image">
+                    <div class="social-media">
+                        <a href="https://www.linkedin.com/in/lucianoaf8/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/lucianoaf8" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:luciano@luca137.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="bio">
+                    <h1>Luca137</h1>
+                    <p>Welcome to my online portfolio. I am a data scientist and AI expert with extensive experience in data analysis, machine learning, and generative AI. Explore my skills, projects, and get in touch!</p>
+                </div>
+            </div>
+        </section>
+        <section id="skills">
             <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill">
-                    <i class="fab fa-python"></i>
-                    <h3>Python</h3>
-                </div>
-                <div class="skill">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Data Analysis</h3>
-                </div>
-                <div class="skill">
-                    <i class="fas fa-robot"></i>
-                    <h3>AI Development</h3>
-                </div>
-                <div class="skill">
-                    <i class="fas fa-code"></i>
-                    <h3>Automation</h3>
-                </div>
+            <ul>
+                <li>AI Development</li>
+                <li>Automation</li>
+                <li>Data Analysis</li>
+                <li>Data Integration</li>
+                <li>Prompt Engineering</li>
+            </ul>
+            <div class="personal-stack">
+                <i class="fab fa-python"></i>
+                <i class="fab fa-github"></i>
+                <i class="fas fa-cloud"></i> <!-- Google Cloud -->
+                <i class="fas fa-code"></i> <!-- VSCode -->
+                <i class="fab fa-google"></i> <!-- Gemini -->
+                <i class="fas fa-comments"></i> <!-- ChatGPT -->
             </div>
-        </div>
-    </section>
-    <section id="projects">
-        <div class="container">
+        </section>
+        <section id="projects">
             <h2>Projects</h2>
-            <div class="projects-container">
-                <!-- Add project details here -->
+            <div class="project-list">
+                <div class="project">
+                    <h3><a href="https://github.com/lucianoaf8/finance-deep-analysis" target="_blank">Finance Deep Analysis</a></h3>
+                </div>
+                <div class="project">
+                    <h3><a href="https://github.com/lucianoaf8/plaid-finance-fetcher" target="_blank">Plaid Finance Fetcher</a></h3>
+                </div>
+                <div class="project">
+                    <h3><a href="https://github.com/lucianoaf8/mbna-statement-import" target="_blank">MBNA Statement Import</a></h3>
+                </div>
+                <div class="project">
+                    <h3><a href="https://github.com/lucianoaf8/screen-scrape" target="_blank">Screen Scrape</a></h3>
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-info">
-                <p>Email: <a href="mailto:luciano@luca137.com">luciano@luca137.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/lucianoaf8/" target="_blank">Luciano Almeida</a></p>
-                <p>GitHub: <a href="https://github.com/lucianoaf8/luca137.github.io" target="_blank">lucianoaf8</a></p>
-            </div>
-        </div>
-    </section>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Luciano Almeida</p>
-        </div>
+        <p>&copy; 2024 Luca137. All rights reserved.</p>
     </footer>
 </body>
 </html>
