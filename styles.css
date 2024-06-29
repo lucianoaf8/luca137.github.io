@@ -128,20 +128,20 @@ ul li {
 }
 
 ul li:hover {
-    background-color: #ffffff;
+    background-color: navy;
+    color: #f0f0f0;
     transform: translateY(-5px);
-    color: #0f0f0f;
 }
 
 .personal-stack {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     margin-top: 20px;
 }
 
 .personal-stack i {
-    font-size: 36px;
+    font-size: 30px;
     color: #ffffff;
     transition: color 0.3s;
 }
@@ -169,13 +169,13 @@ ul li:hover {
 .project:hover {
     transform: translateY(-10px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #ffffff;
+    background-color: navy;
 }
 
 .project h3 {
     margin-top: 0;
     font-size: 22px;
-    color: #0f0f0f;
+    color: #f0f0f0;
 }
 
 .project a {
@@ -184,7 +184,7 @@ ul li:hover {
 }
 
 .project a:hover {
-    color: #0f0f0f;
+    color: #ffffff;
 }
 
 form {
