@@ -211,7 +211,7 @@ input, textarea, button {
 
 input, textarea {
     background-color: #d7d9e6;
-    color: #b0e2c6;
+    color: #000000;
     border: 2px solid #ffffff;
     transition: border-color 0.3s;
 }
