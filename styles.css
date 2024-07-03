@@ -1,8 +1,8 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0f0f0f;
-    color: #f0f0f0;
+    background-color: #041029;
+    color: #b0e2c6;
     line-height: 1.6;
 }
 
@@ -11,7 +11,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #1f1f1f;
+    background-color: #0f1130;
 }
 
 .logo img {
@@ -27,7 +27,7 @@ nav ul {
 }
 
 nav a {
-    color: #f0f0f0;
+    color: #b0e2c6;
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s;
@@ -48,11 +48,11 @@ section {
 }
 
 section:nth-child(odd) {
-    background-color: #1b1b1b;
+    background-color: #091731;
 }
 
 section:nth-child(even) {
-    background-color: #232323;
+    background-color: #0a1835;
 }
 
 .about-content {
@@ -96,7 +96,7 @@ section:nth-child(even) {
 h2 {
     font-size: 28px;
     margin-bottom: 20px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid #b0e2c6;
     display: inline-block;
     text-align: center;
     width: 100%;
@@ -122,14 +122,14 @@ ul li {
     font-size: 18px;
     margin-bottom: 10px;
     padding: 15px 25px;
-    background-color: #1f1f1f;
+    background-color: #00145c;
     border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 ul li:hover {
     background-color: navy;
-    color: #f0f0f0;
+    color: #b0e2c6;
     transform: translateY(-5px);
 }
 
@@ -158,10 +158,11 @@ ul li:hover {
 }
 
 .project {
-    background-color: #1f1f1f;
-    padding: 20px;
+    background-color: #01075c;
+    padding: 30px 40px 10px 40px;
     border-radius: 10px;
     text-align: center;
+    text-wrap: wrap;
     transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
     border: 2px solid #ffffff;
 }
@@ -175,11 +176,11 @@ ul li:hover {
 .project h3 {
     margin-top: 0;
     font-size: 22px;
-    color: #f0f0f0;
+    color: #b0e2c6;
 }
 
 .project a {
-    color: #f0f0f0;
+    color: #b0e2c6;
     text-decoration: none;
 }
 
@@ -209,8 +210,8 @@ input, textarea, button {
 }
 
 input, textarea {
-    background-color: #1f1f1f;
-    color: #f0f0f0;
+    background-color: #d7d9e6;
+    color: #b0e2c6;
     border: 2px solid #ffffff;
     transition: border-color 0.3s;
 }
@@ -233,7 +234,7 @@ button:hover {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #1f1f1f;
+    background-color: #041029;
 }
 
 .social-media {
@@ -244,13 +245,13 @@ footer {
 }
 
 .social-media a {
-    color: #f0f0f0;
+    color: #b0e2c6;
     font-size: 24px;
     transition: color 0.3s;
 }
 
 .social-media a:hover {
-    color: #ffffff; /* Icy white */
+    color: blue; /* Icy white */
 }
 
 .social-media a[href*="github.com"]:hover {
