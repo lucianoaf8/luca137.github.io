@@ -4,83 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Engineer Portfolio</title>
+    <title>Luca137 - Data Science & AI Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="menu" id="menu">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
+        <!-- <div class="logo">
+            <img src="imgs/logo-no-background.png" alt="Luca137 Logo">
+        </div> -->
+        <nav class="transparent-menu">
+            <ul id="menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="timeline"></div>
+        </nav>
     </header>
-    <section id="about">
-        <div class="container">
-            <h1>Welcome</h1>
-            <p>I'm a data analyst aspiring to become an AI Engineer, AI Developer, Prompt Engineer, and Data Scientist.</p>
-        </div>
-    </section>
-    <section id="skills">
-        <div class="container">
+    <main>
+        <section id="about">
+            <div class="about-content">
+                <div class="profile-image">
+                    <img src="imgs/github profile image.jpeg" alt="Profile Image">
+                    <div class="social-media">
+                        <a href="https://www.linkedin.com/in/lucianoaf8/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/lucianoaf8" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:luciano@luca137.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="bio">
+                    <h1>Luca137</h1>
+                    <p>Welcome to my online portfolio. I am a data scientist and AI expert with extensive experience in data analysis, machine learning, and generative AI. Explore my skills, projects, and get in touch!</p>
+                </div>
+            </div>
+        </section>
+        <section id="skills">
             <h2>Skills</h2>
             <ul>
-                <li>Data Analysis</li>
-                <li>Machine Learning</li>
-                <li>Natural Language Processing</li>
-                <li>Python</li>
-                <li>Web Development</li>
+                <li><i class="fas fa-robot"></i> AI Development</li>
+                <li><i class="fas fa-cogs"></i> Automation</li>
+                <li><i class="fas fa-chart-line"></i> Data Analysis</li>
+                <li><i class="fas fa-database"></i> Data Integration</li>
+                <li><i class="fas fa-keyboard"></i> Prompt Engineering</li>
             </ul>
-        </div>
-    </section>
-    <section id="portfolio">
-        <div class="container">
-            <h2>Portfolio</h2>
-            <div class="portfolio-grid">
-                <!-- Portfolio items go here -->
+            <div class="personal-stack">
+                <i class="fab fa-python"></i>
+                <i class="fab fa-github"></i>
+                <i class="fas fa-cloud"></i>
+                <i class="fas fa-code"></i>
+                <i class="fab fa-google"></i>
+                <i class="fas fa-comments"></i>
             </div>
-        </div>
-    </section>
-    <section id="projects">
-        <div class="container">
+        </section>
+        <section id="projects">
             <h2>Projects</h2>
-            <div class="projects-grid">
-                <!-- Project items go here -->
+            <div class="project-list">
+                <div class="project">
+                    <h3><a href="https://github.com/lucianoaf8/finance-deep-analysis" target="_blank">Finance Deep Analysis</a></h3>
+                </div>
+                <div class="project">
+                    <h3><a href="https://github.com/lucianoaf8/plaid-finance-fetcher" target="_blank">Plaid Finance Fetcher</a></h3>
+                </div>
+                <div class="project">
+                    <h3><a href="https://github.com/lucianoaf8/mbna-statement-import" target="_blank">MBNA Statement Import</a></h3>
+                </div>
+                <div class="project">
+                    <h3><a href="https://github.com/lucianoaf8/screen-scrape" target="_blank">Screen Scrape</a></h3>
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="contact">
-        <div class="container">
+        </section>
+        <section id="contact">
             <h2>Contact</h2>
-            <form>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
-                <label for="message">Message</label>
-                <textarea id="message" name="message"></textarea>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
                 <button type="submit">Send</button>
             </form>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Luca137. All rights reserved.</p>
     </footer>
     <script>
         document.getElementById('menu').addEventListener('mouseover', function(event) {
             if (event.target.tagName === 'A') {
                 event.target.style.transform = 'scale(1.2)';
+                event.target.style.color = '#00ff00';
             }
         });
         document.getElementById('menu').addEventListener('mouseout', function(event) {
             if (event.target.tagName === 'A') {
                 event.target.style.transform = 'scale(1)';
+                event.target.style.color = '#ffffff';
             }
         });
     </script>
