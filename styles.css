@@ -32,13 +32,9 @@ header {
     text-decoration: none;
     color: #4CE5D8;
     font-size: 1.2rem;
-    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.menu a:hover {
-    color: #7CEFFF;
-    transform: scale(1.05);
-    box-shadow: 0 0 10px #4CE5D8;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .menu a::after {
@@ -58,6 +54,11 @@ header {
 .menu a:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+}
+
+.menu a:hover {
+    color: #7CEFFF;
+    transform: scale(1.05);
 }
 
 .hero-section {
@@ -84,8 +85,8 @@ header {
 }
 
 .hero-image img {
-    width: 150px;
-    height: 150px;
+    width: 175px;
+    height: 175px;
     border-radius: 50%;
     margin-bottom: 1rem;
     box-shadow: 0 0 20px #4CE5D8;
@@ -96,18 +97,17 @@ header {
     transform: scale(1.1);
 }
 
-.hero-text h1 {
-    margin-bottom: 0.5rem;
-    font-size: 2.5rem;
+.hero-text h1, .hero-text p {
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.hero-text p {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
+.hero-text h1:hover, .hero-text p:hover {
+    color: #7CEFFF;
+    transform: scale(1.05);
 }
 
 .separator {
-    width: 50%;
+    width: 70%;
     height: 2px;
     background-color: #4CE5D8;
     margin: 0.5rem auto;
@@ -154,7 +154,6 @@ section {
 
 h2, h3 {
     color: #7CEFFF;
-    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 h2:hover, h3:hover {
@@ -216,12 +215,11 @@ h2:hover, h3:hover {
     padding: 1rem;
     flex: 1 1 calc(45% - 1rem);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background-color 0.5s ease, box-shadow 0.3s ease;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
     height: auto;
 }
 
 .project:hover, .gpt:hover {
-    transform: scale(1.05);
     box-shadow: 0 0 20px #4CE5D8;
     background-color: #253D52;
 }
@@ -309,6 +307,7 @@ h2:hover, h3:hover {
 form label {
     margin: 0.5rem 0;
     align-self: flex-start;
+    font-weight: bold;
 }
 
 form input, form textarea {
@@ -320,6 +319,7 @@ form input, form textarea {
     background-color: #1C3B47;
     color: #4CE5D8;
     transition: border-color 0.3s ease, background-color 0.3s ease;
+    font-size: 1rem;
 }
 
 form input:hover, form textarea:hover {
@@ -335,6 +335,8 @@ form button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 form button:hover {
@@ -348,4 +350,18 @@ footer {
     text-align: center;
     padding: 1rem 0;
     transition: background-color 0.5s ease;
+}
+
+/* Improved formatting for About Me and How Can I Help You */
+.hero-right p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+    text-align: justify;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-right:hover p {
+    color: #7CEFFF;
+    transform: scale(1.02);
 }
