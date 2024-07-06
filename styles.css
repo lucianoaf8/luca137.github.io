@@ -97,43 +97,53 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60vh;
+    height: auto; /* Allow height to adjust based on content */
     background: linear-gradient(135deg, #0D1F26, #1C3B47);
     color: #4CE5D8;
     text-align: center;
-    padding-top: 2rem; /* Move content down */
+    padding: 2rem 1rem;
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
 }
 
 .hero-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 90%;
+    width: 100%; /* Change from 90% to 100% */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    box-sizing: border-box;
 }
 
 .hero-left, .hero-right {
     flex: 1;
     margin: 1rem;
     min-width: 300px; /* Ensure minimum width */
+    max-width: 600px; /* Add maximum width to prevent overflow */
     box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
+.hero-left {
+    margin-top: 8rem; /* Adjust margin to move the section down */
+    margin-left: 7rem; /* Adjust margin to move the section down */
+}
+
 .hero-image img {
-    width: 200px;
-    height: 200px;
+    width: 200px; /* Ensure original size */
+    height: 200px; /* Ensure original size */
     border-radius: 50%;
     margin-bottom: 1rem;
     box-shadow: 0 0 20px #4CE5D8;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add back the transition */
 }
 
 .hero-image img:hover {
     transform: scale(1.1);
+    box-shadow: 0 0 30px #4CE5D8; /* Enhance shadow on hover */
 }
 
 .hero-text h1, .hero-text p {
     transition: color 0.3s ease, transform 0.3s ease;
+    word-wrap: break-word; /* Ensure long words break */
 }
 
 .hero-text h1 {
@@ -147,12 +157,14 @@ header {
 }
 
 .hero-text h1:hover, .hero-text p:hover {
-    color: #7CEFFF;
-    transform: scale(1.05);
+    color: #4CE5D8;
+    transform: scale(1.1);
+    transform: scale(1.1);
+    text-shadow: 0 0 30px #4CE5D8; /* Enhance shadow on hover */
 }
 
 .separator {
-    width: 70%;
+    width: 75%;
     height: 2px;
     background-color: #4CE5D8;
     margin: 0.5rem auto;
@@ -252,6 +264,7 @@ h3 {
     flex: 1;
     padding: 1rem;
     min-width: 300px; /* Ensure minimum width */
+    max-width: 600px; /* Add maximum width */
 }
 
 .project-list, .gpt-list {
@@ -422,18 +435,36 @@ footer {
     text-align: justify;
 }
 
+
+
 section h2 {
     color: #7CEFFF;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 section h2:hover {
-    color: #ffffff;
-    transform: scale(1.05);
+    color: #4CE5D8;
+    transform: scale(1.1);
+    text-shadow: 0 0 30px #4CE5D8; /* Enhance shadow on hover */
+}
+
+.subsection h3 {
+    color: #7CEFFF;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.subsection h3:hover {
+    color: #4CE5D8;
+    transform: scale(1.1);
+    text-shadow: 0 0 30px #4CE5D8; /* Enhance shadow on hover */
 }
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
+    .menu {
+        display: none; /* Hide menu items by default on mobile */
+    }
+
     .hero-content {
         flex-direction: column;
         align-items: center;
@@ -442,6 +473,7 @@ section h2:hover {
     .hero-left, .hero-right {
         margin: 1rem 0;
         min-width: unset;
+        max-width: unset;
     }
 
     .portfolio-sections {
@@ -450,6 +482,7 @@ section h2:hover {
 
     .projects-section, .gpts-section {
         min-width: unset;
+        max-width: unset;
     }
 
     .hamburger-menu {
@@ -464,7 +497,6 @@ section h2:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
     }
 
     .menu li {
@@ -480,7 +512,6 @@ section h2:hover {
     }
 }
 
-/* Add this to the bottom of styles.css */
 /* Style for Download Resume dropdown */
 .dropdown {
     position: relative;

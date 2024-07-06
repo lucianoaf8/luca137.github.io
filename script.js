@@ -1,3 +1,5 @@
+// script.js
+
 document.querySelector('.toggle-resume').textContent = 'Show Resume';
 
 document.querySelector('.toggle-resume').addEventListener('click', function() {
@@ -70,6 +72,26 @@ function downloadResume(format) {
     link.click();
     URL.revokeObjectURL(link.href); // Clean up URL.createObjectURL
 }
+
+// Ensure menu items are hidden by default on mobile
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) { // Apply only on mobile view
+        const menu = document.querySelector('.menu');
+        menu.classList.add('collapsed'); // Add collapsed class to hide menu items by default
+    }
+});
+
+// Toggle menu items visibility on mobile
+document.getElementById('hamburger-menu').addEventListener('click', function() {
+    const menu = document.querySelector('.menu');
+    if (menu.classList.contains('collapsed')) {
+        menu.classList.remove('collapsed');
+        menu.classList.add('expanded');
+    } else {
+        menu.classList.remove('expanded');
+        menu.classList.add('collapsed');
+    }
+});
 
 // Close the dropdown if the user clicks outside of it
 window.addEventListener('click', function(event) {
