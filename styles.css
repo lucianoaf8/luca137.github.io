@@ -568,3 +568,29 @@ section h2:hover {
     transform: scale(1.1);
     box-shadow: 0 0 20px #4CE5D8; /* Enhance shadow */
 }
+
+/* Define keyframes for pulsating glow effect */
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 20px #4CE5D8;
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 40px #4CE5D8;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px #4CE5D8;
+    }
+}
+
+/* Apply animation to hero-image img */
+.hero-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    animation: pulsate 3s infinite ease-in-out; /* Add animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
