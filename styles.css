@@ -32,11 +32,13 @@ header {
     text-decoration: none;
     color: #4CE5D8;
     font-size: 1.2rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu a:hover {
     color: #7CEFFF;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #4CE5D8;
 }
 
 .menu a::after {
@@ -63,7 +65,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    height: 50vh;
     background: linear-gradient(135deg, #0D1F26, #1C3B47);
     color: #4CE5D8;
     text-align: center;
@@ -104,19 +106,28 @@ header {
     font-size: 1.2rem;
 }
 
+.separator {
+    width: 50%;
+    height: 2px;
+    background-color: #4CE5D8;
+    margin: 0.5rem auto;
+}
+
 .social-links {
     margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .social-links a {
     color: #4CE5D8;
-    margin: 0 0.5rem;
     font-size: 1.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-links a:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
     color: #ffffff;
 }
 
@@ -206,6 +217,7 @@ h2:hover, h3:hover {
     flex: 1 1 calc(45% - 1rem);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background-color 0.5s ease, box-shadow 0.3s ease;
+    height: auto;
 }
 
 .project:hover, .gpt:hover {
@@ -233,11 +245,14 @@ h2:hover, h3:hover {
 .project a, .gpt a {
     color: #7CEFFF;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, margin-top 0.3s ease;
+    display: block;
+    margin-top: 1rem;
 }
 
 .project a:hover, .gpt a:hover {
     color: #ffffff;
+    margin-top: 1.5rem;
 }
 
 .resume-content {
@@ -249,10 +264,16 @@ h2:hover, h3:hover {
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .resume-content.visible {
     display: block;
+}
+
+.resume-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px #4CE5D8;
 }
 
 .toggle-resume {
@@ -270,17 +291,19 @@ h2:hover, h3:hover {
     transform: scale(1.1);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.contact-box {
     background-color: #0D1F26;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 500px;
     margin: auto;
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px #4CE5D8;
 }
 
 form label {
@@ -300,8 +323,8 @@ form input, form textarea {
 }
 
 form input:hover, form textarea:hover {
-    border-color: #7CEFFF;
-    background-color: #253D52;
+    border-color: #b8e4ff;
+    background-color: #3b4e63;
 }
 
 form button {
