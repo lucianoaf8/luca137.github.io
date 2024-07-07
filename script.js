@@ -1,5 +1,6 @@
 // script.js
 
+// Ensure menu items are hidden by default on mobile
 document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth <= 768) { // Apply only on mobile view
         const menu = document.querySelector('.menu');
@@ -19,37 +20,13 @@ document.getElementById('hamburger-menu').addEventListener('click', function() {
     }
 });
 
-// Close the dropdown if the user clicks outside of it
-window.addEventListener('click', function(event) {
-    if (!event.target.matches('.download-resume')) {
-        const dropdowns = document.getElementsByClassName('dropdown-content');
-        for (let i = 0; i < dropdowns.length; i++) {
-            const openDropdown = dropdowns[i];
-            if (openDropdown.style.display === 'block') {
-                openDropdown.style.display = 'none';
-            }
-        }
-    }
-});
-
-// Ensure menu items are hidden by default on mobile
-document.querySelector('.toggle-resume').textContent = 'Show Resume';
-
-document.querySelector('.toggle-resume').addEventListener('click', function() {
-    const resumeContent = document.querySelector('.resume-content');
-    resumeContent.classList.toggle('visible');
-    if (resumeContent.classList.contains('visible')) {
-        this.textContent = 'Hide Resume';
-    } else {
-        this.textContent = 'Show Resume';
-    }
-});
-
+// Handle download resume button click
 document.querySelector('.download-resume').addEventListener('click', function() {
     const dropdownContent = document.querySelector('.dropdown-content');
     dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
 });
 
+// Handle resume format option click
 document.querySelectorAll('.format-option').forEach(function(button) {
     button.addEventListener('click', function() {
         const format = this.getAttribute('data-format');
@@ -105,3 +82,60 @@ function downloadResume(format) {
     link.click();
     URL.revokeObjectURL(link.href); // Clean up URL.createObjectURL
 }
+
+// Toggle resume visibility
+document.querySelector('.toggle-resume').addEventListener('click', function() {
+    const resumeContent = document.querySelector('.resume-content');
+    resumeContent.classList.toggle('visible');
+    if (resumeContent.classList.contains('visible')) {
+        this.textContent = 'Hide Resume';
+    } else {
+        this.textContent = 'Show Resume';
+    }
+});
+
+// Close the dropdown if the user clicks outside of it
+window.addEventListener('click', function(event) {
+    if (!event.target.matches('.download-resume')) {
+        const dropdowns = document.getElementsByClassName('dropdown-content');
+        for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.style.display === 'block') {
+                openDropdown.style.display = 'none';
+            }
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Ensure menu items are hidden by default on mobile
+    if (window.innerWidth <= 768) { // Apply only on mobile view
+        const menu = document.querySelector('.menu');
+        menu.classList.add('collapsed'); // Add collapsed class to hide menu items by default
+    }
+
+    // Toggle menu items visibility on mobile
+    document.getElementById('hamburger-menu').addEventListener('click', function() {
+        const menu = document.querySelector('.menu');
+        if (menu.classList.contains('collapsed')) {
+            menu.classList.remove('collapsed');
+            menu.classList.add('expanded');
+        } else {
+            menu.classList.remove('expanded');
+            menu.classList.add('collapsed');
+        }
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.download-resume')) {
+            const dropdowns = document.getElementsByClassName('dropdown-content');
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.style.display === 'block') {
+                    openDropdown.style.display = 'none';
+                }
+            }
+        }
+    });
+});

@@ -569,7 +569,86 @@ section h2:hover {
     box-shadow: 0 0 20px #4CE5D8; /* Enhance shadow */
 }
 
-/* Define keyframes for pulsating glow effect */
+/* Apply animation to hero-image img */
+.hero-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    animation: pulsate 3s infinite ease-in-out; /* Add animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Container for the 3D flip effect */
+.hero-image-container {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center;
+    margin-top: 20px; /* Adjust as needed to align with the hero-text */
+    position: relative;
+}
+
+.hero-image {
+    perspective: 1000px; /* Adds depth to the 3D effect */
+}
+
+.flip-container {
+    position: relative;
+    width: 200px; /* Match the image dimensions */
+    height: 200px; /* Match the image dimensions */
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    padding: 0; /* Ensure no extra padding */
+    margin: 0 auto; /* Center the flip-container */
+}
+
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+/* Front and back sides */
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    margin: 0; /* Ensure no extra margin */
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+/* Flip on hover */
+.hero-image-container:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+/* Pulse animation */
+.hero-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    animation: pulsate 3s infinite ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #4CE5D8;
+}
+
+/* Keyframes for pulsating effect */
 @keyframes pulsate {
     0% {
         transform: scale(1);
@@ -583,14 +662,4 @@ section h2:hover {
         transform: scale(1);
         box-shadow: 0 0 20px #4CE5D8;
     }
-}
-
-/* Apply animation to hero-image img */
-.hero-image img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    animation: pulsate 3s infinite ease-in-out; /* Add animation */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
