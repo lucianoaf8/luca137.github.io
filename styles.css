@@ -273,6 +273,13 @@ h3 {
     gap: 1rem;
 }
 
+.project:hover, .gpt:hover {
+    transform: scale(1.3); /* Increase enlarging effect */
+    box-shadow: 0 0 30px #4CE5D8;
+    z-index: 10; /* Bring the tile to the front */
+}
+
+/* Ensure the .project and .gpt elements are set up for 3D transformation */
 .project, .gpt {
     background-color: #0D1F26;
     border: 1px solid #4CE5D8;
@@ -280,13 +287,58 @@ h3 {
     padding: 1rem;
     flex: 1 1 calc(45% - 1rem);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.5s ease, box-shadow 0.3s ease;
-    height: auto;
+    transition: transform 0.6s, background-color 0.5s ease, box-shadow 0.3s ease, z-index 0.3s ease;
+    height: 300px;
+    perspective: 1000px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
 }
 
-.project:hover, .gpt:hover {
-    box-shadow: 0 0 20px #4CE5D8;
-    background-color: #253D52;
+/* Update .flip-container to handle 3D transformations */
+.project .flip-container, .gpt .flip-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Ensure .flipper handles the front and back faces */
+.project .flipper, .gpt .flipper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+/* Define front and back faces of the tiles */
+.project .front, .gpt .front, .project .back, .gpt .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.project .front, .gpt .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.project .back, .gpt .back {
+    transform: rotateY(180deg);
+}
+
+/* Ensure the hover effect triggers the flip */
+.project:hover .flipper, .gpt:hover .flipper {
+    transform: rotateY(180deg);
 }
 
 .project i, .gpt i {
@@ -327,7 +379,7 @@ h3 {
     background-color: #0D1F26;
     padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: none; /* Initially no shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -335,9 +387,9 @@ h3 {
     display: block;
 }
 
-.resume-content:hover {
+.resume-content.hover-effect {
     transform: scale(1.02);
-    box-shadow: 0 0 20px #4CE5D8;
+    box-shadow: 0 0 30px #4CE5D8;
 }
 
 .toggle-resume {

@@ -1,6 +1,4 @@
-// script.js
-
-// Ensure menu items are hidden by default on mobile
+// Existing event listeners
 document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth <= 768) { // Apply only on mobile view
         const menu = document.querySelector('.menu');
@@ -45,7 +43,6 @@ function downloadResume(format) {
         case 'pdf':
             mimeType = 'application/pdf';
             filename += '.pdf';
-            // Use jsPDF library to generate PDF
             const doc = new jsPDF();
             doc.fromHTML(resumeContent, 10, 10);
             blob = doc.output('blob');
@@ -53,7 +50,6 @@ function downloadResume(format) {
         case 'docx':
             mimeType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
             filename += '.docx';
-            // Use docxtemplater library to generate DOCX
             const docxContent = `
                 <html>
                     <head><meta charset="utf-8"></head>
@@ -64,7 +60,6 @@ function downloadResume(format) {
         case 'txt':
             mimeType = 'text/plain';
             filename += '.txt';
-            // Convert HTML to plain text
             const textContent = resumeContent.replace(/<[^>]*>/g, '');
             blob = new Blob([textContent], { type: mimeType });
             break;
@@ -83,14 +78,20 @@ function downloadResume(format) {
     URL.revokeObjectURL(link.href); // Clean up URL.createObjectURL
 }
 
-// Toggle resume visibility
+// Toggle resume visibility and apply hover effect dynamically
 document.querySelector('.toggle-resume').addEventListener('click', function() {
     const resumeContent = document.querySelector('.resume-content');
     resumeContent.classList.toggle('visible');
     if (resumeContent.classList.contains('visible')) {
         this.textContent = 'Hide Resume';
+        setTimeout(() => {
+            resumeContent.style.transform = 'scale(1.02)';
+            resumeContent.style.boxShadow = '0 0 30px #4CE5D8';
+        }, 100); // Add a small delay to allow the element to be fully visible before applying the shadow
     } else {
         this.textContent = 'Show Resume';
+        resumeContent.style.transform = 'none';
+        resumeContent.style.boxShadow = 'none';
     }
 });
 
@@ -105,37 +106,4 @@ window.addEventListener('click', function(event) {
             }
         }
     }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Ensure menu items are hidden by default on mobile
-    if (window.innerWidth <= 768) { // Apply only on mobile view
-        const menu = document.querySelector('.menu');
-        menu.classList.add('collapsed'); // Add collapsed class to hide menu items by default
-    }
-
-    // Toggle menu items visibility on mobile
-    document.getElementById('hamburger-menu').addEventListener('click', function() {
-        const menu = document.querySelector('.menu');
-        if (menu.classList.contains('collapsed')) {
-            menu.classList.remove('collapsed');
-            menu.classList.add('expanded');
-        } else {
-            menu.classList.remove('expanded');
-            menu.classList.add('collapsed');
-        }
-    });
-
-    // Close the dropdown if the user clicks outside of it
-    window.addEventListener('click', function(event) {
-        if (!event.target.matches('.download-resume')) {
-            const dropdowns = document.getElementsByClassName('dropdown-content');
-            for (let i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.style.display === 'block') {
-                    openDropdown.style.display = 'none';
-                }
-            }
-        }
-    });
 });
