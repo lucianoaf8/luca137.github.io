@@ -1,0 +1,170 @@
+/* hero.css */
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    color: #4CE5D8;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.hero-left {
+    margin-top: 8rem;
+    margin-left: 7rem;
+}
+
+.hero-right {
+    flex: 1;
+    margin: 1rem;
+    min-width: 300px;
+    max-width: 600px;
+    box-sizing: border-box;
+    transform: translateX(-8rem); /* Move the entire content to the left */
+}
+
+.hero-right p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+    text-align: justify;
+    padding-right: 2rem; /* Add some padding to prevent text from getting too close to the right edge */
+}
+
+.hero-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.hero-image {
+    perspective: 1000px;
+}
+
+.flip-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    margin: 0;
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.hero-image-container:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.hero-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    animation: pulsate 3s infinite ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #4CE5D8;
+}
+
+.hero-text h1,
+.hero-text p {
+    transition: color 0.3s ease, transform 0.3s ease;
+    word-wrap: break-word;
+}
+
+.hero-text h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.hero-text p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.hero-text h1:hover,
+.hero-text p:hover {
+    color: #4CE5D8;
+    transform: scale(1.1);
+    text-shadow: 0 0 30px #4CE5D8;
+}
+
+.separator {
+    width: 75%;
+    height: 2px;
+    background-color: #4CE5D8;
+    margin: 0.5rem auto;
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #4CE5D8;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.3);
+    color: #ffffff;
+}
+
+.social-links a .fab.fa-linkedin:hover {
+    color: #0077B5;
+}
+
+.social-links a .fab.fa-github:hover {
+    color: #4078c0;
+}
+
+.social-links a .fas.fa-envelope:hover {
+    color: #D44638;
+}
