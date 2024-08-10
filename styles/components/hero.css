@@ -30,7 +30,7 @@
     flex: 1;
     margin: 1rem;
     min-width: 300px;
-    max-width: 600px;
+    max-width: 800px;
     box-sizing: border-box;
     transform: translateX(-8rem); /* Move the entire content to the left */
 }
@@ -40,7 +40,7 @@
     line-height: 1.6;
     margin: 0.5rem 0;
     text-align: justify;
-    padding-right: 2rem; /* Add some padding to prevent text from getting too close to the right edge */
+    padding-right: 0rem; /* Add some padding to prevent text from getting too close to the right edge */
 }
 
 .hero-image-container {
