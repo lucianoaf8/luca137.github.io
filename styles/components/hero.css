@@ -21,18 +21,26 @@
     box-sizing: border-box;
 }
 
-.hero-left,
+.hero-left {
+    margin-top: 8rem;
+    margin-left: 7rem;
+}
+
 .hero-right {
     flex: 1;
     margin: 1rem;
     min-width: 300px;
     max-width: 600px;
     box-sizing: border-box;
+    transform: translateX(-8rem); /* Move the entire content to the left */
 }
 
-.hero-left {
-    margin-top: 8rem;
-    margin-left: 7rem;
+.hero-right p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+    text-align: justify;
+    padding-right: 2rem; /* Add some padding to prevent text from getting too close to the right edge */
 }
 
 .hero-image-container {
@@ -159,11 +167,4 @@
 
 .social-links a .fas.fa-envelope:hover {
     color: #D44638;
-}
-
-.hero-right p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 0.5rem 0;
-    text-align: justify;
 }
