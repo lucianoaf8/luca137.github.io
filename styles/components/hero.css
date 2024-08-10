@@ -168,3 +168,15 @@
 .social-links a .fas.fa-envelope:hover {
     color: #D44638;
 }
+
+.social-links a .fab.fa-discord:hover {
+    color: #5865F2;
+}
+
+.social-links a .fab.fa-reddit:hover {
+    color: #FF4500;
+}
+
+.social-links a .fab.fa-xbox:hover {
+    color: #107C10;
+}
