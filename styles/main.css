@@ -5,8 +5,6 @@
 @import url('components/hero.css');
 @import url('components/skills.css');
 @import url('components/portfolio.css');
-@import url('components/resume.css');
-@import url('components/contact.css');
 @import url('components/footer.css');
 
 /* Import utility styles */
@@ -59,8 +57,6 @@ section {
 #about-container,
 #skills-container,
 #portfolio-container,
-#resume-container,
-#contact-container,
 #footer-container {
     position: relative;
     z-index: 1;
