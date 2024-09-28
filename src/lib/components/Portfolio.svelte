@@ -75,15 +75,15 @@
     <h2 class="text-4xl font-bold text-center mb-12 hover:text-[#7CEFFF] transition-colors duration-300">
       Portfolio
     </h2>
-    <div class="flex flex-col lg:flex-row justify-between flex-wrap gap-12">
+    <div class="flex flex-col lg:flex-row gap-12">
       <!-- Projects Section -->
-      <div class="projects-section flex-1 min-w-[300px] max-w-[600px]">
+      <div class="projects-section w-full lg:w-1/2">
         <h3 class="text-2xl font-semibold mb-6 hover:text-[#7CEFFF] transition-colors duration-300">
           Projects
         </h3>
         <div class="project-list grid grid-cols-1 sm:grid-cols-2 gap-6">
           {#each projects as project}
-            <FlipCard>
+            <FlipCard class="aspect-w-1 aspect-h-1" height="300px">
               <div slot="front" class="bg-[#0D1F26] border border-[#4CE5D8] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
                 <h3 class="text-xl font-bold mb-2">{project.title}</h3>
                 <a href={project.link} target="_blank" rel="noopener noreferrer" class="text-[#7CEFFF] hover:text-white transition-colors duration-300">
@@ -104,13 +104,13 @@
       </div>
 
       <!-- GPTs Section -->
-      <div class="gpts-section flex-1 min-w-[300px] max-w-[600px]">
+      <div class="gpts-section w-full lg:w-1/2">
         <h3 class="text-2xl font-semibold mb-6 hover:text-[#7CEFFF] transition-colors duration-300">
           GPTs
         </h3>
         <div class="gpt-list grid grid-cols-1 sm:grid-cols-2 gap-6">
           {#each gpts as gpt}
-            <FlipCard>
+            <FlipCard class="aspect-w-1 aspect-h-1" height="300px">
               <div slot="front" class="bg-[#0D1F26] border border-[#4CE5D8] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
                 <h4 class="text-lg font-bold mb-2">{gpt.title}</h4>
                 <p class="mb-4">{gpt.description}</p>

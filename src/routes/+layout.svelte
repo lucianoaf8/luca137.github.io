@@ -39,8 +39,7 @@
   />
 
   <!-- Favicon -->
-  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico" /> -->
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 </svelte:head>
 
 <slot />
