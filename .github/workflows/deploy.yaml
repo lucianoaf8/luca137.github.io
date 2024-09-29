@@ -21,9 +21,9 @@ jobs:
           node-version: '20'  # Specify your Node.js version
           cache: 'npm'        # Enables caching for npm dependencies
 
-      # 3. Install dependencies
+      # 3. Install dependencies using npm ci
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       # 4. Build the Svelte app
       - name: Build Application
