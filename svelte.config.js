@@ -1,19 +1,9 @@
-// svelte.config.js
 import adapter from '@sveltejs/adapter-static';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
+export default {
   kit: {
     adapter: adapter({
-      // Optional: specify adapter options here
-      // pages: 'build',
-      // assets: 'build',
-      // fallback: null
+      fallback: '200.html',  // or another fallback page
     }),
-    prerender: {
-      default: true
-    }
-  }
+  },
 };
-
-export default config;
