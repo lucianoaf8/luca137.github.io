@@ -15,7 +15,7 @@
     isSubmitting = true;
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/lucianoaf8@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/1dd60f00f301a798f7dd825602c12596', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
