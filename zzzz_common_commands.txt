@@ -1,0 +1,10 @@
+# Uninstall It Globally:
+
+npm uninstall -g <library>
+npm uninstall -g @sveltejs/kit
+npm uninstall -g svelte svelte-kit
+
+
+
+# Check global installs:
+npm list -g --depth=0
