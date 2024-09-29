@@ -53,5 +53,10 @@ tailwind.config.js
 coverage
 *.lcov
 
+# Lockfiles
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
 # Miscellaneous
 *.tmp
