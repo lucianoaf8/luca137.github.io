@@ -1,43 +1,47 @@
-<!-- src/lib/components/Header.svelte -->
 <script>
   import { onMount } from 'svelte';
+  import { theme } from '$lib/stores/theme';
+  import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
+  import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
-  // Reactive variable to manage the menu state
   let isMenuOpen = false;
 
-  // Function to toggle the menu state
+  // Reactive declaration using Svelte's $ prefix
+  $: isDarkMode = $theme === 'dark';
+
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
   }
 
-  // Optional: Close the menu when clicking outside
   function handleClickOutside(event) {
     if (!event.target.closest('#header') && isMenuOpen) {
       isMenuOpen = false;
     }
   }
 
+  function toggleTheme() {
+    theme.setTheme(isDarkMode ? 'light' : 'dark');
+  }
+
   onMount(() => {
     window.addEventListener('click', handleClickOutside);
+    theme.initialize();
     return () => {
       window.removeEventListener('click', handleClickOutside);
     };
   });
 </script>
 
-<header id="header" class="bg-[#0A171E] text-[#4CE5D8] fixed w-full z-50 shadow-lg">
+<header id="header" class="bg-[#0A171E] dark:bg-[#1F2937] text-[#4CE5D8] dark:text-[#E5E7EB] fixed w-full z-50 shadow-lg">
   <nav class="container mx-auto flex items-center justify-between p-4">
-    <!-- Logo or Brand Name -->
     <a href="#home" class="text-2xl font-extrabold font-exo hover:text-[#7CEFFF] transition-colors duration-300">
       Luca137
     </a>
 
     <!-- Navigation Menu -->
-    <ul
-      class={`menu flex flex-col md:flex-row md:items-center transition-all duration-300 ease-in-out ${
-        isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden md:opacity-100 md:max-h-none'
-      } md:flex md:space-x-6`}
-    >
+    <ul class={`menu flex flex-col md:flex-row md:items-center transition-all duration-300 ease-in-out ${
+      isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden md:opacity-100 md:max-h-none'
+    } md:flex md:space-x-6`}>
       <li>
         <a href="#home" class="menu-link group relative">
           Home
@@ -78,6 +82,19 @@
           </svg>
         </a>
       </li>
+      <li>
+        <button on:click={toggleTheme} class="relative inline-flex items-center p-1 rounded-full w-14 h-8 transition-colors duration-300 focus:outline-none bg-[#4CE5D8] dark:bg-[#7CEFFF]" aria-label="Toggle theme">
+          <span class="sr-only">Toggle theme</span>
+          <span class={`absolute left-1 top-1 w-6 h-6 rounded-full transition-transform duration-300 transform ${isDarkMode ? 'translate-x-6 bg-[#1F2937]' : 'bg-[#0A171E]'}`}></span>
+          
+          <!-- Conditionally Render Icons -->
+          {#if isDarkMode}
+            <FontAwesomeIcon icon={faMoon} class="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-[#1F2937]" />
+          {:else}
+            <FontAwesomeIcon icon={faSun} class="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-[#0A171E]" />
+          {/if}
+        </button>
+      </li>
     </ul>
 
     <!-- Hamburger Menu Icon -->
@@ -107,7 +124,7 @@
   </nav>
 </header>
 
-<!-- Optional: Spacer to prevent content from being hidden behind the fixed header -->
+<!-- Spacer to prevent content from being hidden behind the fixed header -->
 <div class="h-16 md:h-20"></div>
 
 <style>
@@ -167,7 +184,8 @@
       padding: 1rem 0;
     }
 
-    .menu-link, .external-link {
+    .menu-link,
+    .external-link {
       font-size: 1.5rem;
       margin: 0.5rem 0;
     }

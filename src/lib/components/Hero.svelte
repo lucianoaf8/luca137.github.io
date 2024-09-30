@@ -59,9 +59,9 @@
   ];
 </script>
 
-<section id="home" class="py-10 md:py-20 bg-[#0D1F26] text-[#4CE5D8]">
+<section id="home" class="py-10 md:py-20 bg-[#0D1F26] dark:bg-[#111827] text-[#4CE5D8] dark:text-[#E5E7EB]">
   <div class="container mx-auto px-4 flex flex-col items-center justify-center">
-    <div class="info-card border-2 border-custom-text rounded-lg shadow-2xl py-10 px-6 md:pt-20 md:pb-24 md:px-40 bg-black bg-opacity-40 hover:animate-wiggle w-full max-w-3xl">
+    <div class="info-card border-2 border-custom-text rounded-lg shadow-2xl py-10 px-6 md:pt-20 md:pb-24 md:px-40 bg-black bg-opacity-40 dark:bg-opacity-60 hover:animate-wiggle w-full max-w-3xl">
       <div class="hero-image-container mb-8 flex justify-center">
         <div class="hero-image relative w-32 h-32 md:w-48 md:h-48 perspective">
           <div class="flip-container w-full h-full">

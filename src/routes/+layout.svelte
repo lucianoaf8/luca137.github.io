@@ -1,12 +1,31 @@
 <!-- src/routes/+layout.svelte -->
 <script>
   import "../app.css";
+  import { onMount } from 'svelte';
+  import { theme } from '$lib/stores/theme';
 
   import { library } from '@fortawesome/fontawesome-svg-core';
   import { fab } from '@fortawesome/free-brands-svg-icons';
   import { fas } from '@fortawesome/free-solid-svg-icons';
   import { config } from '@fortawesome/fontawesome-svg-core';
   import '@fortawesome/fontawesome-svg-core/styles.css'; // Import the CSS
+
+  let currentTheme = 'dark';  // Set default to 'dark'
+
+theme.subscribe(value => {
+  currentTheme = value;
+  if (typeof document !== 'undefined') {
+    if (value === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
+});
+
+onMount(() => {
+  theme.initialize();
+});
 
   // Prevent Font Awesome from adding its CSS since we did it manually above
   config.autoAddCss = false;
@@ -47,4 +66,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 </svelte:head>
 
-<slot />
+<div class={currentTheme}>
+  <slot />
+</div>

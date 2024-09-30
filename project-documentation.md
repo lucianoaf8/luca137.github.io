@@ -61,41 +61,46 @@ The **Luca137 Svelte Portfolio** is a modern, responsive portfolio website built
 Here's an overview of the current folder structure of the project:
 
 ```
-luca137-svelte/
-├── node_modules/
-├── public/
-│   ├── images/
-│   │   ├── project1.png
-│   │   ├── project2.png
-│   │   └── ... (other images)
-│   └── favicon.png
-├── src/
-│   ├── lib/
-│   │   └── components/
+LUCA137-SVELTE
+├── .github
+├── .svelte-kit
+├── .vscode
+├── build
+├── node_modules
+├── src
+│   ├── lib
+│   │   └── components
 │   │       ├── Blog.svelte
 │   │       ├── Contact.svelte
+│   │       ├── FlipCard.svelte
 │   │       ├── Footer.svelte
 │   │       ├── Header.svelte
 │   │       ├── Hero.svelte
 │   │       ├── Portfolio.svelte
 │   │       ├── ProjectCard.svelte
 │   │       ├── SkillCard.svelte
-│   │       └── Skills.svelte
-│   ├── routes/
-│   │   ├── +layout.svelte
-│   │   └── +page.svelte
-│   ├── app.css
-│   └── ... (other SvelteKit files)
-├── tailwind.config.cjs
-├── postcss.config.cjs
-├── stylelint.config.cjs
-├── package.json
-├── package-lock.json
-├── svelte.config.js
-├── vite.config.js
-├── README.md
+│   │       ├── Skills.svelte
+│   └── routes
+│       ├── +layout.svelte
+│       └── +page.svelte
+├── static
+├── app.css
+├── app.html
+├── .gitattributes
 ├── .gitignore
-└── ... (other configuration files)
+├── .npmrc
+├── clean-install-npm.ps1
+├── CNAME
+├── favicon.ico
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── project-documentation.md
+├── README.md
+├── stylelint.config.cjs
+├── svelte.config.js
+├── tailwind.config.cjs
+├── vite.config.js
 ```
 
 ### **Key Directories and Files:**
