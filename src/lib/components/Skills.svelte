@@ -1,26 +1,26 @@
-<!-- src/lib/components/Skills.svelte -->
 <script>
   import { onMount } from 'svelte';
+  import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
+  import { faCode, faChartBar, faRobot, faDatabase, faBrain, faCogs, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 
   // Function to initialize any skills-specific logic
   function initializeSkills() {
     console.log('Skills component initialized');
-    // Add any additional initialization logic here if needed
   }
 
   onMount(() => {
     initializeSkills();
   });
 
-  // Define skills as an array of objects with icon and label
+  // Define skills as an array of objects with FontAwesome icons and labels
   const skills = [
-    { icon: 'fas fa-code', label: 'Python Programming' },
-    { icon: 'fas fa-chart-bar', label: 'Data Analysis & Visualization' },
-    { icon: 'fas fa-robot', label: 'Prompt Engineering' },
-    { icon: 'fas fa-database', label: 'SQL & Database Management' },
-    { icon: 'fas fa-brain', label: 'AI Application Development' },
-    { icon: 'fas fa-cogs', label: 'Data Processing & Automation' },
-    { icon: 'fas fa-balance-scale', label: 'Ethical Decision Making & Data Privacy' },
+    { icon: faCode, label: 'Python Programming' },
+    { icon: faChartBar, label: 'Data Analysis & Visualization' },
+    { icon: faRobot, label: 'Prompt Engineering' },
+    { icon: faDatabase, label: 'SQL & Database Management' },
+    { icon: faBrain, label: 'AI Application Development' },
+    { icon: faCogs, label: 'Data Processing & Automation' },
+    { icon: faBalanceScale, label: 'Ethical Decision Making & Data Privacy' },
   ];
 </script>
 
@@ -30,7 +30,7 @@
     <ul class="skills-list flex flex-wrap justify-center gap-6">
       {#each skills as skill}
         <li class="flex items-center bg-[#0D1F26] border border-[#4CE5D8] rounded-lg p-4 transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:bg-[#253D52]">
-          <i class="{skill.icon} mr-3 text-2xl"></i>
+          <FontAwesomeIcon icon={skill.icon} class="mr-3 text-2xl" />
           <span class="text-lg">{skill.label}</span>
         </li>
       {/each}
