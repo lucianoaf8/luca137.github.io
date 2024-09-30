@@ -73,7 +73,7 @@
               name="name"
               bind:value={name}
               placeholder="Your Name"
-              class="w-full px-4 py-3 bg-gray-900 border border-[#4CE5D8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7CEFFF] transition-colors duration-300"
+              class="w-full px-4 py-3 bg-gray-900 bg-[#00443d] border border-[#4CE5D8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7CEFFF] transition-colors duration-300"
               required
             />
           </div>
@@ -85,7 +85,7 @@
               name="email"
               bind:value={email}
               placeholder="your.email@example.com"
-              class="w-full px-4 py-3 bg-gray-900 border border-[#4CE5D8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7CEFFF] transition-colors duration-300"
+              class="w-full px-4 py-3 bg-gray-900 bg-[#00443d] border border-[#4CE5D8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7CEFFF] transition-colors duration-300"
               required
             />
           </div>
@@ -97,7 +97,7 @@
               bind:value={message}
               placeholder="Your Message"
               rows="5"
-              class="w-full px-4 py-3 bg-gray-900 border border-[#4CE5D8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7CEFFF] transition-colors duration-300"
+              class="w-full px-4 py-3 bg-gray-900 bg-[#00443d] border border-[#4CE5D8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7CEFFF] transition-colors duration-300"
               required
             ></textarea>
           </div>
