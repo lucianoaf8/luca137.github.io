@@ -1,9 +1,8 @@
 <!-- src/lib/components/Header.svelte -->
 <script>
   import { onMount } from 'svelte';
-  import { writable } from 'svelte/store';
 
-  // Reactive store to manage the menu state
+  // Reactive variable to manage the menu state
   let isMenuOpen = false;
 
   // Function to toggle the menu state
@@ -35,7 +34,7 @@
 
     <!-- Navigation Menu -->
     <ul
-      class={`menu flex space-x-6 transition-all duration-300 ease-in-out ${
+      class={`menu flex flex-col md:flex-row md:items-center transition-all duration-300 ease-in-out ${
         isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden md:opacity-100 md:max-h-none'
       } md:flex md:space-x-6`}
     >
@@ -57,16 +56,26 @@
           <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#7CEFFF] transition-all duration-300 group-hover:w-full"></span>
         </a>
       </li>
-      <!-- <li>
-        <a href="#blog" class="menu-link group relative">
-          Blog
-          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#7CEFFF] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-      </li> -->
       <li>
         <a href="#contact" class="menu-link group relative">
           Contact
           <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#7CEFFF] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </li>
+      <li class="md:ml-4">
+        <a href="https://blog.luca137.com" target="_blank" rel="noopener noreferrer" class="external-link">
+          Blog
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </li>
+      <li class="md:ml-2">
+        <a href="https://newsletter.luca137.com" target="_blank" rel="noopener noreferrer" class="external-link">
+          Newsletter
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
         </a>
       </li>
     </ul>
@@ -113,7 +122,6 @@
     transition: color 0.3s ease, transform 0.3s ease;
     display: inline-block;
     padding: 0.25rem 0;
-    /* Ensure overflow is visible to display the underline */
     overflow: visible;
   }
 
@@ -122,8 +130,24 @@
     transform: scale(1.05);
   }
 
-  /* Underline is handled by the span inside the link */
-  /* Ensure the span is visible and transitions correctly */
+  /* External Link Styles */
+  .external-link {
+    color: #7CEFFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: rgba(124, 239, 255, 0.1);
+  }
+
+  .external-link:hover {
+    color: #4CE5D8;
+    transform: scale(1.05);
+    background-color: rgba(124, 239, 255, 0.2);
+  }
 
   /* Hamburger Menu Transitions */
   .hamburger-line {
@@ -143,9 +167,13 @@
       padding: 1rem 0;
     }
 
-    .menu-link {
+    .menu-link, .external-link {
       font-size: 1.5rem;
       margin: 0.5rem 0;
+    }
+
+    .external-link {
+      margin-top: 1rem;
     }
   }
 

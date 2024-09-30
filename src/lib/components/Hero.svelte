@@ -11,17 +11,14 @@
   } from '@fortawesome/free-brands-svg-icons';
   import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-  // Function to initialize any hero-specific JavaScript logic
   function initializeHero() {
     console.log('Hero component initialized');
-    // Add any additional initialization logic here
   }
 
   onMount(() => {
     initializeHero();
   });
 
-  // Social media links data
   const socialLinks = [
     {
       href: 'https://www.linkedin.com/in/lucianoaf8/',
@@ -62,13 +59,11 @@
   ];
 </script>
 
-<section id="home" class="py-20 bg-[#0D1F26] text-[#4CE5D8]">
-  <div class="container mx-auto flex flex-col items-center justify-center">
-    <!-- Info Card with Border and Shadow -->
-    <div class="info-card border-2 border-custom-text rounded-lg shadow-2xl pt-20 pb-24 px-40 bg-black bg-opacity-40 hover:animate-wiggle">
-      <!-- Hero Image with Flip Effect -->
+<section id="home" class="py-10 md:py-20 bg-[#0D1F26] text-[#4CE5D8]">
+  <div class="container mx-auto px-4 flex flex-col items-center justify-center">
+    <div class="info-card border-2 border-custom-text rounded-lg shadow-2xl py-10 px-6 md:pt-20 md:pb-24 md:px-40 bg-black bg-opacity-40 hover:animate-wiggle w-full max-w-3xl">
       <div class="hero-image-container mb-8 flex justify-center">
-        <div class="hero-image relative w-48 h-48 perspective">
+        <div class="hero-image relative w-32 h-32 md:w-48 md:h-48 perspective">
           <div class="flip-container w-full h-full">
             <div class="flipper w-full h-full">
               <div class="front absolute w-full h-full backface-hidden">
@@ -90,15 +85,13 @@
         </div>
       </div>
 
-      <!-- Hero Text -->
       <div class="hero-text text-center">
-        <h1 class="text-5xl font-bold mb-2 hover:text-[#4CE5D8] transform hover:scale-105 transition duration-300 ease-in-out">
+        <h1 class="text-3xl md:text-5xl font-bold mb-2 hover:text-[#4CE5D8] transform hover:scale-105 transition duration-300 ease-in-out">
           Luciano Almeida
         </h1>
         <div class="separator w-3/4 h-1 bg-[#4CE5D8] mx-auto mb-4"></div>
-        <p class="text-xl mb-4">AI Development, Data & Prompt Engineering</p>
-        <!-- Social Links -->
-        <div class="social-links flex justify-center gap-4">
+        <p class="text-lg md:text-xl mb-4">AI Development, Data & Prompt Engineering</p>
+        <div class="social-links flex flex-wrap justify-center gap-4">
           {#each socialLinks as link}
             <a
               href="{link.href}"
@@ -108,7 +101,7 @@
               class="social-link"
               style="--hover-color: {link.hoverColor};"
             >
-              <FontAwesomeIcon icon="{link.icon}" class="text-3xl" />
+              <FontAwesomeIcon icon="{link.icon}" class="text-2xl md:text-3xl" />
             </a>
           {/each}
         </div>
@@ -118,17 +111,14 @@
 </section>
 
 <style>
-  /* Hero Component Specific Styles */
-
-  /* Flip Animation */
   .perspective {
     perspective: 1000px;
   }
 
   .flip-container {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     transform-style: preserve-3d;
     transition: transform 0.6s;
   }
@@ -159,12 +149,10 @@
     transform: rotateY(180deg);
   }
 
-  /* Trigger flip on hover */
   .hero-image-container:hover .flipper {
     transform: rotateY(180deg);
   }
 
-  /* Pulsate Animation */
   @keyframes pulsate {
     0% {
       transform: scale(1);
@@ -184,7 +172,6 @@
     animation: pulsate 3s infinite ease-in-out;
   }
 
-  /* Social Links Styles */
   .social-links {
     margin-top: 1rem;
     display: flex;
@@ -194,7 +181,6 @@
 
   .social-link {
     color: #4CE5D8;
-    font-size: 1.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
     display: inline-flex;
     align-items: center;
@@ -203,29 +189,33 @@
 
   .social-link:hover {
     transform: scale(1.3);
-    /* Removed color: #ffffff to allow icon color to override */
   }
 
-  /* Apply hover color to SVG icons using :global */
   :global(.social-link:hover svg) {
     color: var(--hover-color);
   }
 
-  /* Ensure SVG icons inherit color from parent */
   :global(.social-link svg) {
     color: inherit;
   }
 
-  /* Responsive Adjustments */
-  @media (max-width: 1024px) {
-    /* If you have responsive styles specific to Hero component, add them here */
-  }
-
-  /* Separator Line */
   .separator {
     border: none;
     height: 2px;
     background-color: #4CE5D8;
   }
 
+  @media (max-width: 640px) {
+    .info-card {
+      padding: 1.5rem;
+    }
+
+    .hero-image-container {
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      gap: 0.75rem;
+    }
+  }
 </style>
