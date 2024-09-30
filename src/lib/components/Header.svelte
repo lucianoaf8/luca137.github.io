@@ -57,12 +57,12 @@
           <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#7CEFFF] transition-all duration-300 group-hover:w-full"></span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="#blog" class="menu-link group relative">
           Blog
           <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#7CEFFF] transition-all duration-300 group-hover:w-full"></span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="#contact" class="menu-link group relative">
           Contact

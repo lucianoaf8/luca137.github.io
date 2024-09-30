@@ -84,13 +84,13 @@
         <div class="project-list grid grid-cols-1 sm:grid-cols-2 gap-6">
           {#each projects as project}
             <FlipCard class="aspect-w-1 aspect-h-1" height="300px">
-              <div slot="front" class="bg-[#0D1F26] border border-[#4CE5D8] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
+              <div slot="front" class="bg-[#0D1F26] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
                 <h3 class="text-xl font-bold mb-2">{project.title}</h3>
                 <a href={project.link} target="_blank" rel="noopener noreferrer" class="text-[#7CEFFF] hover:text-white transition-colors duration-300">
                   View on GitHub
                 </a>
               </div>
-              <div slot="back" class="bg-[#0D1F26] border border-[#4CE5D8] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
+              <div slot="back" class="bg-[#0D1F26] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
                 <h3 class="text-xl font-bold mb-2">{project.title}</h3>
                 <p class="mb-2"><strong>Description:</strong> {project.description}</p>
                 <p class="mb-4"><strong>Technologies:</strong> {project.technologies}</p>
@@ -111,14 +111,14 @@
         <div class="gpt-list grid grid-cols-1 sm:grid-cols-2 gap-6">
           {#each gpts as gpt}
             <FlipCard class="aspect-w-1 aspect-h-1" height="300px">
-              <div slot="front" class="bg-[#0D1F26] border border-[#4CE5D8] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
+              <div slot="front" class="bg-[#0D1F26] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
                 <h4 class="text-lg font-bold mb-2">{gpt.title}</h4>
                 <p class="mb-4">{gpt.description}</p>
                 <a href={gpt.link} target="_blank" rel="noopener noreferrer" class="text-[#7CE5D8] hover:text-white transition-colors duration-300">
                   Try it out
                 </a>
               </div>
-              <div slot="back" class="bg-[#0D1F26] border border-[#4CE5D8] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
+              <div slot="back" class="bg-[#0D1F26] rounded-lg p-4 h-full flex flex-col justify-center items-center text-center">
                 <h4 class="text-lg font-bold mb-2">{gpt.title}</h4>
                 <p class="mb-2"><strong>Description:</strong> {gpt.description}</p>
                 <p class="mb-4"><strong>Technologies:</strong> {gpt.technologies}</p>

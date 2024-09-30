@@ -65,7 +65,7 @@
 <section id="home" class="py-20 bg-[#0D1F26] text-[#4CE5D8]">
   <div class="container mx-auto flex flex-col items-center justify-center">
     <!-- Info Card with Border and Shadow -->
-    <div class="info-card border-2 border-custom-text rounded-lg shadow-2xl p-16 bg-black bg-opacity-40 ">
+    <div class="info-card border-2 border-custom-text rounded-lg shadow-2xl pt-20 pb-24 px-40 bg-black bg-opacity-40 hover:animate-wiggle">
       <!-- Hero Image with Flip Effect -->
       <div class="hero-image-container mb-8 flex justify-center">
         <div class="hero-image relative w-48 h-48 perspective">
@@ -92,12 +92,11 @@
 
       <!-- Hero Text -->
       <div class="hero-text text-center">
-        <h1 class="text-4xl font-bold mb-2 hover:text-[#4CE5D8] transform hover:scale-105 transition duration-300 ease-in-out">
+        <h1 class="text-5xl font-bold mb-2 hover:text-[#4CE5D8] transform hover:scale-105 transition duration-300 ease-in-out">
           Luciano Almeida
         </h1>
-        <p class="text-xl mb-4">Luca137 - Your friendly neighborhood AI Developer</p>
         <div class="separator w-3/4 h-1 bg-[#4CE5D8] mx-auto mb-4"></div>
-        <p class="text-lg mb-4">AI Development, Data & Prompt Engineering</p>
+        <p class="text-xl mb-4">AI Development, Data & Prompt Engineering</p>
         <!-- Social Links -->
         <div class="social-links flex justify-center gap-4">
           {#each socialLinks as link}
@@ -109,7 +108,7 @@
               class="social-link"
               style="--hover-color: {link.hoverColor};"
             >
-              <FontAwesomeIcon icon="{link.icon}" />
+              <FontAwesomeIcon icon="{link.icon}" class="text-3xl" />
             </a>
           {/each}
         </div>

@@ -13,6 +13,17 @@ module.exports = {
     scale: {
       '130': '1.3',
     },
+    extend: {
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+      },
+      animation: {
+        wiggle: 'wiggle 0.3s ease-in-out 1', // Reduced duration to 0.3s and it runs only once
+      },
+    },
   },
   variants: {
     extend: {
