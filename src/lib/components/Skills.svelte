@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
-  import { faCode, faChartBar, faRobot, faDatabase, faBrain, faCogs, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
+  import { faCode, faChartBar, faRobot, faDatabase, faBrain, faCogs, faBalanceScale, faDesktop, faServer, faPuzzlePiece } from '@fortawesome/free-solid-svg-icons';
 
   // Function to initialize any skills-specific logic
   function initializeSkills() {
@@ -21,6 +21,9 @@
     { icon: faBrain, label: 'AI Application Development' },
     { icon: faCogs, label: 'Data Processing & Automation' },
     { icon: faBalanceScale, label: 'Ethical Decision Making & Data Privacy' },
+    { icon: faDesktop, label: 'Front-End Development' },
+    { icon: faServer, label: 'VPS (Server) Managing' },
+    { icon: faPuzzlePiece, label: 'Problem Solving' },
   ];
 </script>
 
@@ -32,7 +35,7 @@
     <h2 class="text-5xl font-orbitron text-center mb-16 bg-gradient-to-r from-custom-accent to-custom-accent-dark bg-clip-text text-transparent letter-spacing-extra-wide">
       Skills
     </h2>
-    <ul class="skills-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-8">
+    <ul class="skills-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
       {#each skills as skill}
         <li class="flex flex-col items-center bg-card-gradient border border-custom-accent-dark rounded-lg p-6 shadow-custom-card transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-custom-card-hover">
           <FontAwesomeIcon icon={skill.icon} class="text-4xl mb-4 drop-shadow-custom-icon transition-transform duration-500 hover:animate-rotate360" />

@@ -18,12 +18,12 @@ module.exports = {
         'custom-shadow-light': '#242424',
         'custom-gray-2F': '#2F2F2F',
         'custom-gray-3F': '#3F3F3F',
-        'custom-button-gradient-dark': '#00CC66', // Define darker gradient for hover
+        'custom-button-gradient-dark': '#00CC66',
       },
       fontFamily: {
         lato: ['Lato', 'sans-serif'],
         orbitron: ['Orbitron', 'sans-serif'],
-        exo: ['Exo 2', 'sans-serif'], // Added Exo 2 if used in styles
+        exo: ['Exo 2', 'sans-serif'],
       },
       keyframes: {
         rotate: {
@@ -53,7 +53,7 @@ module.exports = {
         'hero-gradient': 'linear-gradient(135deg, #1F1F1F 0%, #2F2F2F 100%)',
         'card-gradient': 'linear-gradient(145deg, #2F2F2F, #3F3F3F)',
         'button-gradient': 'linear-gradient(145deg, #00FF80, #00CC66)',
-        'button-gradient-dark': 'linear-gradient(145deg, #00CC66, #00FF80)', // Define darker gradient for hover
+        'button-gradient-dark': 'linear-gradient(145deg, #00CC66, #00FF80)',
         'holographic-line': 'linear-gradient(90deg, transparent, #00FF80, #00CC66, #00FF80, transparent)',
         'radial-gradient': 'radial-gradient(circle, rgba(0, 255, 128, 0.03) 0%, rgba(31, 31, 31, 0) 70%)',
       }),

@@ -34,8 +34,8 @@
 
 <header id="header" class="bg-secondary-bg text-primary-text fixed w-full z-50 shadow-lg shadow-green-glow bg-radial-gradient">
   <nav class="container mx-auto flex items-center justify-between p-4 top-[-50%] left-[-50%] w-[200%] h-[200%] bg-radial-gradient">
-    <!-- Brand Name with Shadow and Depth -->
-    <a href="#home" class="text-2xl font-orbitron text-accent hover:text-accent-light transition-colors duration-300 shadow-lg">
+    <!-- Brand Name with Enhanced Styles -->
+    <a href="#home" class="brand-name-gradient text-transparent bg-clip-text bg-gradient-to-r from-[#00FF80] via-[#00CC66] to-[#00FF80] hover:from-[#00FF80] hover:via-[#00CC66] hover:to-[#00FF80] transition-colors duration-300 shadow-lg">
       Luca137
     </a>
 
@@ -79,20 +79,7 @@
           </svg>
         </a>
       </li>
-      <li>
-        <!-- Theme Toggle Button -->
-        <button on:click={toggleTheme} class="relative inline-flex items-center p-1 rounded-full w-14 h-8 transition-colors duration-300 focus:outline-none bg-accent" aria-label="Toggle theme">
-          <span class="sr-only">Toggle theme</span>
-          <span class={`absolute left-1 top-1 w-6 h-6 rounded-full transition-transform duration-300 transform ${isDarkMode ? 'translate-x-6 bg-primary-bg' : 'bg-secondary-bg'}`}></span>
-          
-          <!-- Conditionally Render Icons -->
-          {#if isDarkMode}
-            <FontAwesomeIcon icon={faMoon} class="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-primary-bg" />
-          {:else}
-            <FontAwesomeIcon icon={faSun} class="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-secondary-bg" />
-          {/if}
-        </button>
-      </li>
+      
     </ul>
 
     <!-- Hamburger Menu Icon -->
@@ -127,6 +114,14 @@
 
 <style>
   /* Header Component Specific Styles */
+
+  /* Optimized Gradient Text */
+  .brand-name-gradient {
+    font-size: 2.5rem; /* Maintain increased font size */
+    font-weight: 800; /* Maintain boldness */
+    font-family: 'Orbitron', sans-serif; /* Maintain custom font */
+    text-shadow: 0 0 10px rgba(0, 255, 128, 0.7), 0 0 0 rgba(0, 255, 128, 0.5); /* Retain text shadow */
+  }
 
   /* Menu Link Styles with Custom Hover Effect */
   .menu-link {
@@ -225,6 +220,11 @@
     .external-link {
       margin-top: 1rem;
     }
+
+    .brand-decorated::before,
+    .brand-decorated::after {
+      display: none; /* Hide decorative lines on smaller screens */
+    }
   }
 
   /* Sheen Effect for Navigation Links */
@@ -243,12 +243,6 @@
   .menu-link:hover::after,
   .external-link:hover::after {
     width: 100%;
-  }
-
-  /* Custom Font for Brand Name with Shadow */
-  .font-orbitron {
-    font-family: 'Orbitron', sans-serif;
-    text-shadow: 2px 2px 4px rgba(0, 255, 128, 0.5);
   }
 
   /* Accent Light for Brand Hover */
