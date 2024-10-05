@@ -32,38 +32,35 @@
   });
 </script>
 
-<header id="header" class="bg-[#0A171E] dark:bg-[#1F2937] text-[#4CE5D8] dark:text-[#E5E7EB] fixed w-full z-50 shadow-lg">
-  <nav class="container mx-auto flex items-center justify-between p-4">
-    <a href="#home" class="text-2xl font-extrabold font-exo hover:text-[#7CEFFF] transition-colors duration-300">
+<header id="header" class="bg-secondary-bg text-primary-text fixed w-full z-50 shadow-lg shadow-green-glow bg-radial-gradient">
+  <nav class="container mx-auto flex items-center justify-between p-4 top-[-50%] left-[-50%] w-[200%] h-[200%] bg-radial-gradient">
+    <!-- Brand Name with Shadow and Depth -->
+    <a href="#home" class="text-2xl font-orbitron text-accent hover:text-accent-light transition-colors duration-300 shadow-lg">
       Luca137
     </a>
 
     <!-- Navigation Menu -->
     <ul class={`menu flex flex-col md:flex-row md:items-center transition-all duration-300 ease-in-out ${
       isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden md:opacity-100 md:max-h-none'
-    } md:flex md:space-x-6`}>
+    } md:flex md:space-x-0`}>
       <li>
         <a href="#home" class="menu-link group relative">
           Home
-          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#7CEFFF] transition-all duration-300 group-hover:w-full"></span>
         </a>
       </li>
       <li>
         <a href="#portfolio" class="menu-link group relative">
           Portfolio
-          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#7CEFFF] transition-all duration-300 group-hover:w-full"></span>
         </a>
       </li>
       <li>
         <a href="#skills" class="menu-link group relative">
           Skills
-          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#7CEFFF] transition-all duration-300 group-hover:w-full"></span>
         </a>
       </li>
       <li>
         <a href="#contact" class="menu-link group relative">
           Contact
-          <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#7CEFFF] transition-all duration-300 group-hover:w-full"></span>
         </a>
       </li>
       <li class="md:ml-4">
@@ -83,15 +80,16 @@
         </a>
       </li>
       <li>
-        <button on:click={toggleTheme} class="relative inline-flex items-center p-1 rounded-full w-14 h-8 transition-colors duration-300 focus:outline-none bg-[#4CE5D8] dark:bg-[#7CEFFF]" aria-label="Toggle theme">
+        <!-- Theme Toggle Button -->
+        <button on:click={toggleTheme} class="relative inline-flex items-center p-1 rounded-full w-14 h-8 transition-colors duration-300 focus:outline-none bg-accent" aria-label="Toggle theme">
           <span class="sr-only">Toggle theme</span>
-          <span class={`absolute left-1 top-1 w-6 h-6 rounded-full transition-transform duration-300 transform ${isDarkMode ? 'translate-x-6 bg-[#1F2937]' : 'bg-[#0A171E]'}`}></span>
+          <span class={`absolute left-1 top-1 w-6 h-6 rounded-full transition-transform duration-300 transform ${isDarkMode ? 'translate-x-6 bg-primary-bg' : 'bg-secondary-bg'}`}></span>
           
           <!-- Conditionally Render Icons -->
           {#if isDarkMode}
-            <FontAwesomeIcon icon={faMoon} class="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-[#1F2937]" />
+            <FontAwesomeIcon icon={faMoon} class="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-primary-bg" />
           {:else}
-            <FontAwesomeIcon icon={faSun} class="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-[#0A171E]" />
+            <FontAwesomeIcon icon={faSun} class="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-secondary-bg" />
           {/if}
         </button>
       </li>
@@ -106,17 +104,17 @@
       type="button"
     >
       <div
-        class={`hamburger-line w-6 h-0.5 bg-[#4CE5D8] transform transition-transform duration-300 ${
+        class={`hamburger-line w-6 h-0.5 bg-primary-text transform transition-transform duration-300 ${
           isMenuOpen ? 'rotate-45 translate-y-1.5' : ''
         }`}
       ></div>
       <div
-        class={`hamburger-line w-6 h-0.5 bg-[#4CE5D8] transition-opacity duration-300 ${
+        class={`hamburger-line w-6 h-0.5 bg-primary-text transition-opacity duration-300 ${
           isMenuOpen ? 'opacity-0' : 'opacity-100'
         }`}
       ></div>
       <div
-        class={`hamburger-line w-6 h-0.5 bg-[#4CE5D8] transform transition-transform duration-300 ${
+        class={`hamburger-line w-6 h-0.5 bg-primary-text transform transition-transform duration-300 ${
           isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
         }`}
       ></div>
@@ -130,40 +128,74 @@
 <style>
   /* Header Component Specific Styles */
 
-  /* Menu Link Styles with Underline Animation */
+  /* Menu Link Styles with Custom Hover Effect */
   .menu-link {
-    position: relative;
-    text-decoration: none;
-    color: #4CE5D8;
-    font-size: 1.2rem;
-    transition: color 0.3s ease, transform 0.3s ease;
     display: inline-block;
-    padding: 0.25rem 0;
-    overflow: visible;
+    padding: 0.8rem 1.5rem;
+    background-color: transparent;
+    color: #00FF80; /* accent */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .menu-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #00FF80; /* accent */
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
+
+  .menu-link:hover::before {
+    left: 0;
   }
 
   .menu-link:hover {
-    color: #7CEFFF;
-    transform: scale(1.05);
+    color: #1F1F1F; /* primary-bg */
   }
 
   /* External Link Styles */
   .external-link {
-    color: #7CEFFF;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    background-color: rgba(124, 239, 255, 0.1);
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: transparent;
+    color: #00FF80; /* accent */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .external-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #00FF80; /* accent */
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
+
+  .external-link:hover::before {
+    left: 0;
   }
 
   .external-link:hover {
-    color: #4CE5D8;
-    transform: scale(1.05);
-    background-color: rgba(124, 239, 255, 0.2);
+    color: #1F1F1F; /* primary-bg */
   }
 
   /* Hamburger Menu Transitions */
@@ -176,7 +208,7 @@
     .menu {
       flex-direction: column;
       align-items: center;
-      background-color: #0A171E;
+      background-color: #2F2F2F; /* secondary-bg */
       position: absolute;
       top: 100%;
       left: 0;
@@ -195,8 +227,32 @@
     }
   }
 
-  /* Custom Font for Brand Name */
-  .font-exo {
-    font-family: 'Exo 2', sans-serif;
+  /* Sheen Effect for Navigation Links */
+  .menu-link::after,
+  .external-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #00FF80; /* accent */
+    transition: width 0.3s ease;
+  }
+
+  .menu-link:hover::after,
+  .external-link:hover::after {
+    width: 100%;
+  }
+
+  /* Custom Font for Brand Name with Shadow */
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 255, 128, 0.5);
+  }
+
+  /* Accent Light for Brand Hover */
+  .hover\:text-accent-light:hover {
+    color: #00CC66; /* Slightly darker accent on hover */
   }
 </style>

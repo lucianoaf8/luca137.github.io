@@ -24,14 +24,19 @@
   ];
 </script>
 
-<section id="skills" class="py-20 bg-[#0D1F26] text-[#4CE5D8]">
-  <div class="container mx-auto">
-    <h2 class="text-4xl font-bold text-center mb-12">Skills</h2>
-    <ul class="skills-list flex flex-wrap justify-center gap-6">
+<section id="skills" class="py-20 bg-hero-gradient text-custom-text relative overflow-hidden">
+  <!-- Rotating Radial Gradient Overlay -->
+  <div class="absolute inset-0 top-[-50%] left-[-50%] w-[200%] h-[200%] bg-radial-gradient"></div>
+
+  <div class="container mx-auto relative z-10">
+    <h2 class="text-5xl font-orbitron text-center mb-16 bg-gradient-to-r from-custom-accent to-custom-accent-dark bg-clip-text text-transparent letter-spacing-extra-wide">
+      Skills
+    </h2>
+    <ul class="skills-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-7 gap-8">
       {#each skills as skill}
-        <li class="flex items-center bg-[#0D1F26] border border-[#4CE5D8] rounded-lg p-4 transition-transform duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:bg-[#253D52]">
-          <FontAwesomeIcon icon={skill.icon} class="mr-3 text-2xl" />
-          <span class="text-lg">{skill.label}</span>
+        <li class="flex flex-col items-center bg-card-gradient border border-custom-accent-dark rounded-lg p-6 shadow-custom-card transition-transform duration-500 ease-in-out transform hover:scale-105 hover:shadow-custom-card-hover">
+          <FontAwesomeIcon icon={skill.icon} class="text-4xl mb-4 drop-shadow-custom-icon transition-transform duration-500 hover:animate-rotate360" />
+          <span class="text-lg font-lato font-semibold text-center">{skill.label}</span>
         </li>
       {/each}
     </ul>
@@ -39,5 +44,10 @@
 </section>
 
 <style>
-  /* No additional styles needed as Tailwind handles most styling */
+  /* Skills Component Specific Styles */
+
+  /* Ensure perspective for potential future 3D effects */
+  #skills {
+    perspective: 1000px;
+  }
 </style>

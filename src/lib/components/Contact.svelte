@@ -54,10 +54,15 @@
   }
 </script>
 
-<section id="contact" class="py-20 bg-[#0D1F26] text-[#4CE5D8]">
-  <div class="container mx-auto">
-    <h2 class="text-3xl font-extrabold font-exo text-center mb-12">Contact Me</h2>
-    <div class="max-w-lg mx-auto border-2 border-custom-text rounded-lg shadow-2xl p-12 bg-black bg-opacity-40">
+<section id="contact" class="py-20 bg-hero-gradient text-custom-text relative overflow-hidden">
+  <!-- Rotating Radial Gradient Overlay -->
+  <div class="absolute inset-0 top-[-50%] left-[-50%] w-[200%] h-[200%] bg-radial-gradient"></div>
+
+  <div class="container mx-auto relative z-10">
+    <h2 class="text-5xl font-orbitron text-center mb-16 bg-gradient-to-r from-custom-accent to-custom-accent-dark bg-clip-text text-transparent letter-spacing-extra-wide">
+      Contact Me
+    </h2>
+    <div class="max-w-lg mx-auto border-2 border-custom-accent-dark rounded-lg shadow-custom-card p-12 bg-card-gradient bg-opacity-90">
       {#if !showSuccess}
         <form on:submit|preventDefault={handleSubmit} class="space-y-6">
           <!-- Hidden Fields for Formsubmit.co -->
@@ -66,48 +71,48 @@
           <input type="hidden" name="_captcha" value="false" />
 
           <div>
-            <label class="block text-[#4CE5D8] mb-2" for="name">Name</label>
+            <label class="block text-custom-accent-dark mb-2" for="name">Name</label>
             <input
               type="text"
               id="name"
               name="name"
               bind:value={name}
               placeholder="Your Name"
-              class="w-full px-4 py-3 bg-gray-900 bg-[#00443d] border border-[#4CE5D8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7CEFFF] transition-colors duration-300"
+              class="w-full px-4 py-3 bg-custom-gray-2F border border-custom-accent-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-accent transition-colors duration-300 placeholder-custom-gray-3F"
               required
             />
           </div>
           <div>
-            <label class="block text-[#4CE5D8] mb-2" for="email">Email</label>
+            <label class="block text-custom-accent-dark mb-2" for="email">Email</label>
             <input
               type="email"
               id="email"
               name="email"
               bind:value={email}
               placeholder="your.email@example.com"
-              class="w-full px-4 py-3 bg-gray-900 bg-[#00443d] border border-[#4CE5D8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7CEFFF] transition-colors duration-300"
+              class="w-full px-4 py-3 bg-custom-gray-2F border border-custom-accent-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-accent transition-colors duration-300 placeholder-custom-gray-3F"
               required
             />
           </div>
           <div>
-            <label class="block text-[#4CE5D8] mb-2" for="message">Message</label>
+            <label class="block text-custom-accent-dark mb-2" for="message">Message</label>
             <textarea
               id="message"
               name="message"
               bind:value={message}
               placeholder="Your Message"
               rows="5"
-              class="w-full px-4 py-3 bg-gray-900 bg-[#00443d] border border-[#4CE5D8] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#7CEFFF] transition-colors duration-300"
+              class="w-full px-4 py-3 bg-custom-gray-2F border border-custom-accent-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-accent transition-colors duration-300 placeholder-custom-gray-3F"
               required
             ></textarea>
           </div>
           <button
             type="submit"
             disabled={isSubmitting}
-            class={`w-full py-3 rounded-lg shadow-lg transition-transform transform ${
+            class={`w-full py-3 rounded-lg shadow-custom-button-hover transition-transform transform ${
               isSubmitting
                 ? 'bg-gray-600 text-gray-300 cursor-not-allowed'
-                : 'bg-[#7CEFFF] text-[#0A171E] hover:bg-[#4CE5D8] hover:scale-105 cursor-pointer'
+                : 'bg-button-gradient text-custom-bg font-semibold hover:bg-button-gradient-dark hover:scale-105 cursor-pointer'
             }`}
           >
             {isSubmitting ? 'Submitting...' : 'Send Message'}
@@ -115,11 +120,13 @@
         </form>
       {:else}
         <div class="text-center">
-          <h3 class="text-2xl font-extrabold font-exo mb-4">Thank You!</h3>
+          <h3 class="text-3xl font-orbitron mb-4 bg-gradient-to-r from-custom-accent to-custom-accent-dark bg-clip-text text-transparent letter-spacing-extra-wide">
+            Thank You!
+          </h3>
           <p class="text-lg mb-6">Your message has been successfully sent. I'll get back to you soon!</p>
           <button
             on:click={() => (showSuccess = false)}
-            class="inline-block bg-[#7CEFFF] text-[#0A171E] py-2 px-4 rounded-lg hover:bg-[#4CE5D8] transition-transform transform hover:scale-105 shadow-lg"
+            class="inline-block bg-button-gradient text-custom-bg py-2 px-6 rounded-lg shadow-custom-button-hover transition-transform transform hover:scale-105 hover:bg-button-gradient-dark"
           >
             Back to Contact
           </button>
@@ -130,24 +137,22 @@
 </section>
 
 <style>
-  /* Custom Font for Titles */
-  .font-exo {
-    font-family: 'Exo 2', sans-serif;
+  /* Contact Component Specific Styles */
+
+  /* Ensure perspective for potential future 3D effects */
+  #contact {
+    perspective: 1000px;
   }
 
-  /* Custom Border Color */
-  .border-custom-text {
-    border-color: #4CE5D8;
+  /* Custom Gradient for Button Hover */
+  .bg-button-gradient-dark {
+    background: linear-gradient(145deg, #00CC66, #00FF80);
   }
 
-  /* Transition Enhancements */
-  input::placeholder,
-  textarea::placeholder {
-    color: #a0aec0; /* Light gray for placeholder text */
+  /* Transition for Button Gradient */
+  .transition-transform {
+    transition-property: transform, background-color;
   }
 
-  /* Button Hover Effects */
-  button:hover {
-    cursor: pointer;
-  }
+  /* Additional Button Styles if needed */
 </style>
