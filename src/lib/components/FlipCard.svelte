@@ -7,7 +7,6 @@
 <div
   class="flip-container perspective group cursor-pointer"
   style="width: {width}; height: {height};"
-  tabindex="0"
 >
   <div class="flipper transition-transform duration-600 preserve-3d group-hover:rotate-y-180 focus:rotate-y-180 will-change-transform">
     <div class="front bg-card-gradient rounded-lg p-6 flex flex-col justify-center items-center text-center shadow-custom-card backface-hidden">

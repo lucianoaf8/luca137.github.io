@@ -54,7 +54,7 @@
 <header id="header" class="bg-secondary-bg text-primary-text fixed w-full z-50 shadow-lg shadow-green-glow bg-radial-gradient">
   <nav class="container mx-auto flex items-center justify-between p-4 top-[-50%] left-[-50%] w-[200%] h-[200%] bg-radial-gradient">
     <!-- Brand Name with Enhanced Styles -->
-    <a href="#home" class="brand-name-gradient text-transparent bg-clip-text bg-gradient-to-r from-[#00FF80] via-[#00CC66] to-[#00FF80] hover:from-[#00FF80] hover:via-[#00CC66] hover:to-[#00FF80] transition-colors duration-300 shadow-lg">
+    <a href="/" class="brand-name-gradient text-transparent bg-clip-text bg-gradient-to-r from-[#00FF80] via-[#00CC66] to-[#00FF80] hover:from-[#00FF80] hover:via-[#00CC66] hover:to-[#00FF80] transition-colors duration-300 shadow-lg">
       Luca137
     </a>
 
@@ -63,7 +63,7 @@
       isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden md:opacity-100 md:max-h-none'
     } md:flex md:space-x-0`}>
       <li>
-        <a href="#home" class="menu-link group relative">
+        <a href="/" class="menu-link group relative">
           {$t('navigation.home')}
         </a>
       </li>
