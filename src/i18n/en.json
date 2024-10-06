@@ -1,0 +1,115 @@
+{
+    "navigation": {
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "skills": "Skills",
+      "contact": "Contact",
+      "blog": "Blog",
+      "newsletter": "Newsletter",
+      "language": "Language"
+    },
+    "heroSection": {
+      "title": "Luciano Almeida",
+      "subtitle": "AI Development | Data & Prompt Engineering"
+    },
+    "socialLinks": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "Email",
+      "discord": "Discord",
+      "reddit": "Reddit",
+      "xbox": "Xbox"
+    },
+    "portfolioSection": {
+    "title": "Portfolio",
+    "projectsTitle": "Projects",
+    "gptsTitle": "GPTs",
+    "viewOnGithub": "View on GitHub",
+    "tryItOut": "Try it out",
+    "description": "Description",
+    "technologies": "Technologies",
+    "projects": {
+      "financeDeepAnalysis": {
+        "title": "Finance Deep Analysis",
+        "description": "A comprehensive analysis tool for financial data.",
+        "technologies": "Python, Pandas"
+      },
+      "plaidFinanceFetcher": {
+        "title": "Plaid Finance Fetcher",
+        "description": "Fetch and process financial data using the Plaid API.",
+        "technologies": "JavaScript, Plaid API"
+      },
+      "mbnaStatementImport": {
+        "title": "MBNA Statement Import",
+        "description": "Automate the import of MBNA statements using Selenium.",
+        "technologies": "Python, Selenium"
+      },
+      "screenScrape": {
+        "title": "Screen Scrape",
+        "description": "A tool to scrape and process screen data efficiently.",
+        "technologies": "Python, BeautifulSoup"
+      }
+    },
+    "gpts": {
+      "featureEngGPT": {
+        "title": "FeatureEng-GPT",
+        "description": "Friendly feature engineering bot.",
+        "technologies": "GPT-3, Python"
+      },
+      "aiGPT": {
+        "title": "AI-GPT",
+        "description": "Helps create AI models and projects with expert guidance.",
+        "technologies": "GPT-3, Python"
+      },
+      "mysqlGPT": {
+        "title": "MysqlGPT",
+        "description": "User-friendly MySQL 8 expert offering database design, query creation, and optimization solutions.",
+        "technologies": "MySQL, Python"
+      },
+      "pythonGPT": {
+        "title": "PythonGPT",
+        "description": "Python coding expert providing comprehensive solutions and project structure guidance.",
+        "technologies": "Python, GPT-3"
+      }
+    }
+  },
+    "skillsSection": {
+      "title": "Skills",
+      "list": [
+        "Python Programming",
+        "Data Analysis & Visualization",
+        "Prompt Engineering",
+        "SQL & Database Management",
+        "AI Application Development",
+        "Data Processing & Automation",
+        "Ethical Decision Making & Data Privacy",
+        "Front-End Development",
+        "VPS (Server) Managing",
+        "Problem Solving"
+      ]
+    },
+    "contactSection": {
+        "title": "Contact Me",
+        "nameLabel": "Name",
+        "emailLabel": "Email",
+        "messageLabel": "Message",
+        "sendMessage": "Send Message",
+        "submitting": "Submitting...",
+        "thankYou": "Thank You!",
+        "successMessage": "Your message has been successfully sent. I'll get back to you soon!",
+        "backToContact": "Back to Contact",
+        "errorSubmit": "There was an error submitting the form. Please try again.",
+        "errorNetwork": "There was an error submitting the form. Please check your connection and try again.",
+        "yourName": "Your Name",
+        "yourEmail": "your.email@example.com",
+        "yourMessage": "Your Message"
+    },
+    "footer": {
+      "copyright": "© 2024 Luca137 - Data Analyst & AI Automation Specialist",
+      "designedWith": "Designed with AI and 💚"
+    },
+    "themeToggle": {
+      "light": "Light mode",
+      "dark": "Dark mode"
+    }
+  }

@@ -34,6 +34,7 @@
 		"@fortawesome/svelte-fontawesome": "^0.2.2",
 		"@sveltejs/kit": "^2.6.1",
 		"@tailwindcss/forms": "^0.5.9",
-		"@tailwindcss/typography": "^0.5.15"
+		"@tailwindcss/typography": "^0.5.15",
+		"svelte-i18n": "^4.0.0"
 	}
 }

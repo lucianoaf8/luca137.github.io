@@ -1,8 +1,12 @@
 <!-- src/routes/+layout.svelte -->
 <script>
-  import "../app.css";
   import { onMount } from 'svelte';
+  import '../i18n';
+  import '../app.css';
   import { theme } from '$lib/stores/theme';
+  
+  // Import locale and waitLocale from svelte-i18n
+  import { locale, waitLocale } from 'svelte-i18n';
 
   import { library } from '@fortawesome/fontawesome-svg-core';
   import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -10,29 +14,34 @@
   import { config } from '@fortawesome/fontawesome-svg-core';
   import '@fortawesome/fontawesome-svg-core/styles.css'; // Import the CSS
 
-  let currentTheme = 'dark';  // Set default to 'dark'
-
-theme.subscribe(value => {
-  currentTheme = value;
-  if (typeof document !== 'undefined') {
-    if (value === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }
-});
-
-onMount(() => {
-  theme.initialize();
-});
-
   // Prevent Font Awesome from adding its CSS since we did it manually above
   config.autoAddCss = false;
 
   // Add all icons to the library (you can add only specific icons to reduce bundle size)
   library.add(fab, fas);
 
+  let localeSet = false;
+
+  onMount(async () => {
+    // Initialize the theme
+    theme.initialize();
+
+    // Wait for the locale to load
+    await waitLocale();
+
+    // Detect and set the locale based on the user's browser language
+    const userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
+    console.log(`Detected browser languages: ${userLangs.join(', ')}`);
+
+    // Find the first supported locale from the user's preferred languages
+    const supportedLocales = ['pt', 'en'];
+    const detectedLocale = userLangs.find(lang => supportedLocales.some(loc => lang.startsWith(loc))) || 'en';
+    
+    locale.set(detectedLocale);
+    console.log(`Locale set to ${detectedLocale === 'pt' ? 'Portuguese' : 'English'}`);
+    
+    localeSet = true;
+  });
 </script>
 
 <svelte:head>
@@ -66,6 +75,6 @@ onMount(() => {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 </svelte:head>
 
-<div class={currentTheme}>
+<div>
   <slot />
 </div>

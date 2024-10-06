@@ -2,6 +2,8 @@
 <script>
   import { createEventDispatcher } from 'svelte';
   import { goto } from '$app/navigation'; // Import goto for navigation
+  import { t } from 'svelte-i18n'; // Import the `t` function from svelte-i18n
+  import '../../i18n.js'; // Initialize i18n
 
   const dispatch = createEventDispatcher();
 
@@ -43,11 +45,11 @@
         message = '';
       } else {
         // Handle server errors
-        alert(result.message || 'There was an error submitting the form. Please try again.');
+        alert($t('contactSection.errorSubmit'));
       }
     } catch (error) {
       // Handle network errors
-      alert('There was an error submitting the form. Please check your connection and try again.');
+      alert($t('contactSection.errorNetwork'));
     } finally {
       isSubmitting = false;
     }
@@ -60,7 +62,7 @@
 
   <div class="container mx-auto relative z-10">
     <h2 class="text-5xl font-orbitron text-center mb-16 bg-gradient-to-r from-custom-accent to-custom-accent-dark bg-clip-text text-transparent letter-spacing-extra-wide">
-      Contact Me
+      { $t('contactSection.title') }
     </h2>
     <div class="max-w-lg mx-auto border-2 border-custom-accent-dark rounded-lg shadow-custom-card p-12 bg-card-gradient bg-opacity-90">
       {#if !showSuccess}
@@ -71,36 +73,36 @@
           <input type="hidden" name="_captcha" value="false" />
 
           <div>
-            <label class="block text-custom-accent-dark mb-2" for="name">Name</label>
+            <label class="block text-custom-accent-dark mb-2" for="name">{ $t('contactSection.nameLabel') }</label>
             <input
               type="text"
               id="name"
               name="name"
               bind:value={name}
-              placeholder="Your Name"
+              placeholder={ $t('contactSection.yourName') }
               class="w-full px-4 py-3 bg-custom-gray-2F border border-custom-accent-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-accent transition-colors duration-300 placeholder-custom-gray-3F"
               required
             />
           </div>
           <div>
-            <label class="block text-custom-accent-dark mb-2" for="email">Email</label>
+            <label class="block text-custom-accent-dark mb-2" for="email">{ $t('contactSection.emailLabel') }</label>
             <input
               type="email"
               id="email"
               name="email"
               bind:value={email}
-              placeholder="your.email@example.com"
+              placeholder={ $t('contactSection.yourEmail') }
               class="w-full px-4 py-3 bg-custom-gray-2F border border-custom-accent-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-accent transition-colors duration-300 placeholder-custom-gray-3F"
               required
             />
           </div>
           <div>
-            <label class="block text-custom-accent-dark mb-2" for="message">Message</label>
+            <label class="block text-custom-accent-dark mb-2" for="message">{ $t('contactSection.messageLabel') }</label>
             <textarea
               id="message"
               name="message"
               bind:value={message}
-              placeholder="Your Message"
+              placeholder={ $t('contactSection.yourMessage') }
               rows="5"
               class="w-full px-4 py-3 bg-custom-gray-2F border border-custom-accent-dark rounded-lg focus:outline-none focus:ring-2 focus:ring-custom-accent transition-colors duration-300 placeholder-custom-gray-3F"
               required
@@ -115,20 +117,20 @@
                 : 'bg-button-gradient text-custom-bg font-semibold hover:bg-button-gradient-dark hover:scale-105 cursor-pointer'
             }`}
           >
-            {isSubmitting ? 'Submitting...' : 'Send Message'}
+            {isSubmitting ? $t('contactSection.submitting') : $t('contactSection.sendMessage')}
           </button>
         </form>
       {:else}
         <div class="text-center">
           <h3 class="text-3xl font-orbitron mb-4 bg-gradient-to-r from-custom-accent to-custom-accent-dark bg-clip-text text-transparent letter-spacing-extra-wide">
-            Thank You!
+            { $t('contactSection.thankYou') }
           </h3>
-          <p class="text-lg mb-6">Your message has been successfully sent. I'll get back to you soon!</p>
+          <p class="text-lg mb-6">{ $t('contactSection.successMessage') }</p>
           <button
             on:click={() => (showSuccess = false)}
             class="inline-block bg-button-gradient text-custom-bg py-2 px-6 rounded-lg shadow-custom-button-hover transition-transform transform hover:scale-105 hover:bg-button-gradient-dark"
           >
-            Back to Contact
+            { $t('contactSection.backToContact') }
           </button>
         </div>
       {/if}
