@@ -25,7 +25,6 @@
   onMount(async () => {
     // Initialize the theme
     theme.initialize();
-    initializeTheme();
 
     // Wait for the locale to load
     await waitLocale();

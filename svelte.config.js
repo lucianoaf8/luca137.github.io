@@ -14,7 +14,10 @@ const config = {
     }),
     paths: {
       base: process.argv.includes('dev') ? '' : process.env.BASE_PATH  // Ensures base path is root
-    }
+    },
+    prerender: {
+      handleMissingId: 'ignore',
+  },
   }
 };
 

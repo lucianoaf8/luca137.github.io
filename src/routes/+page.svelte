@@ -4,7 +4,6 @@
   import Hero from '$lib/components/Hero.svelte';
   import Portfolio from '$lib/components/Portfolio.svelte';
   import Skills from '$lib/components/Skills.svelte';
-  // import Blog from '$lib/components/Blog.svelte';
   import Contact from '$lib/components/Contact.svelte';
   import Footer from '$lib/components/Footer.svelte';
 </script>
@@ -13,6 +12,5 @@
 <Hero />
 <Portfolio />
 <Skills />
-<!-- <Blog /> -->
 <Contact />
 <Footer />
