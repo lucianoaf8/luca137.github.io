@@ -1,0 +1,115 @@
+{
+    "navigation": {
+      "home": "Início",
+      "portfolio": "Portfólio",
+      "skills": "Habilidades",
+      "contact": "Contato",
+      "blog": "Blog",
+      "newsletter": "Newsletter",
+      "language": "Idioma"
+    },
+    "heroSection": {
+      "title": "Luciano Almeida",
+      "subtitle": "Desenvolvimento de IA | Engenharia de Dados e Prompts"
+    },
+    "socialLinks": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "email": "E-mail",
+      "discord": "Discord",
+      "reddit": "Reddit",
+      "xbox": "Xbox"
+    },
+    "portfolioSection": {
+    "title": "Portfólio",
+    "projectsTitle": "Projetos",
+    "gptsTitle": "GPTs",
+    "viewOnGithub": "Ver no GitHub",
+    "tryItOut": "Experimente",
+    "description": "Descrição",
+    "technologies": "Tecnologias",
+    "projects": {
+      "financeDeepAnalysis": {
+        "title": "Análise Financeira Profunda",
+        "description": "Uma ferramenta de análise abrangente para dados financeiros.",
+        "technologies": "Python, Pandas"
+      },
+      "plaidFinanceFetcher": {
+        "title": "Plaid Finance Fetcher",
+        "description": "Buscar e processar dados financeiros usando a API Plaid.",
+        "technologies": "JavaScript, Plaid API"
+      },
+      "mbnaStatementImport": {
+        "title": "Importação de Extratos MBNA",
+        "description": "Automatize a importação de extratos MBNA usando Selenium.",
+        "technologies": "Python, Selenium"
+      },
+      "screenScrape": {
+        "title": "Screen Scrape",
+        "description": "Uma ferramenta para raspar e processar dados de tela de forma eficiente.",
+        "technologies": "Python, BeautifulSoup"
+      }
+    },
+    "gpts": {
+      "featureEngGPT": {
+        "title": "FeatureEng-GPT",
+        "description": "Bot amigável de engenharia de features.",
+        "technologies": "GPT-3, Python"
+      },
+      "aiGPT": {
+        "title": "AI-GPT",
+        "description": "Ajuda a criar modelos e projetos de IA com orientação especializada.",
+        "technologies": "GPT-3, Python"
+      },
+      "mysqlGPT": {
+        "title": "MysqlGPT",
+        "description": "Especialista amigável em MySQL 8 oferecendo design de banco de dados, criação de consultas e soluções de otimização.",
+        "technologies": "MySQL, Python"
+      },
+      "pythonGPT": {
+        "title": "PythonGPT",
+        "description": "Especialista em codificação Python fornecendo soluções abrangentes e orientação na estruturação de projetos.",
+        "technologies": "Python, GPT-3"
+      }
+    }
+  },
+    "skillsSection": {
+      "title": "Habilidades",
+      "list": [
+        "Programação Python",
+        "Análise e Visualização de Dados",
+        "Engenharia de Prompt",
+        "Gerenciamento de SQL e Banco de Dados",
+        "Desenvolvimento de Aplicações de IA",
+        "Processamento e Automação de Dados",
+        "Tomada de Decisão Ética e Privacidade de Dados",
+        "Desenvolvimento Front-End",
+        "Gerenciamento de VPS (Servidor)",
+        "Resolução de Problemas"
+      ]
+    },
+    "contactSection": {
+        "title": "Contato",
+        "nameLabel": "Nome",
+        "emailLabel": "Email",
+        "messageLabel": "Mensagem",
+        "sendMessage": "Enviar Mensagem",
+        "submitting": "Enviando...",
+        "thankYou": "Obrigado!",
+        "successMessage": "Sua mensagem foi enviada com sucesso. Eu retornarei o mais breve possível!",
+        "backToContact": "Voltar para Contato",
+        "errorSubmit": "Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.",
+        "errorNetwork": "Ocorreu um erro ao enviar o formulário. Por favor, verifique sua conexão e tente novamente.",
+        "yourName": "Seu Nome",
+        "yourEmail": "seu.email@exemplo.com",
+        "yourMessage": "Sua Mensagem"
+    },
+    "footer": {
+      "copyright": "© 2024 Luca137 - Analista de Dados e Especialista em Automação de IA",
+      "designedWith": "Projetado com IA e 💚"
+    },
+    "themeToggle": {
+      "light": "Modo claro",
+      "dark": "Modo escuro"
+    }
+  }

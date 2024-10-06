@@ -1,6 +1,7 @@
 <!-- src/lib/components/Footer.svelte -->
 <script>
-  // No script needed for a static footer
+  import { t } from 'svelte-i18n'; // Import the `t` function from svelte-i18n
+  import '../../i18n.js'; // Initialize i18n (adjust the path if necessary)
 </script>
 
 <footer class="py-10 bg-hero-gradient text-custom-text relative overflow-hidden">
@@ -10,10 +11,10 @@
   <div class="container mx-auto relative z-10">
     <div class="footer-content font-exo text-lg flex flex-col items-center space-y-4">
       <p class="hover:text-custom-accent-dark transition-colors duration-300">
-        &copy; 2024 Luca137 - Data Analyst & AI Automation Specialist
+        { $t('footer.copyright') }
       </p>
       <p class="hover:text-custom-accent-dark transition-colors duration-300">
-        Designed with AI and 💚
+        { $t('footer.designedWith') }
       </p>
     </div>
   </div>

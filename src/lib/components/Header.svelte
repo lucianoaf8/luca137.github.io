@@ -1,8 +1,13 @@
+<!-- src/lib/components/Header.svelte -->
 <script>
   import { onMount } from 'svelte';
   import { theme } from '$lib/stores/theme';
   import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
   import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+  import { t } from 'svelte-i18n';
+  import { locale } from 'svelte-i18n';
+  import language from '$lib/stores/language';
+  import { get } from 'svelte/store';
 
   let isMenuOpen = false;
 
@@ -22,6 +27,20 @@
   function toggleTheme() {
     theme.setTheme(isDarkMode ? 'light' : 'dark');
   }
+
+  function toggleLanguage() {
+    const currentLang = get(locale);
+    const newLang = currentLang.startsWith('en') ? 'pt' : 'en';
+    locale.set(newLang);
+  }
+
+  // Helper function to extract base language code
+  function getBaseLanguage(localeValue) {
+    return localeValue.split('-')[0];
+  }
+
+  // Determine the language to display on the toggle button
+  $: toggleButtonLabel = getBaseLanguage($locale).toUpperCase();
 
   onMount(() => {
     window.addEventListener('click', handleClickOutside);
@@ -45,27 +64,27 @@
     } md:flex md:space-x-0`}>
       <li>
         <a href="#home" class="menu-link group relative">
-          Home
+          {$t('navigation.home')}
         </a>
       </li>
       <li>
         <a href="#portfolio" class="menu-link group relative">
-          Portfolio
+          {$t('navigation.portfolio')}
         </a>
       </li>
       <li>
         <a href="#skills" class="menu-link group relative">
-          Skills
+          {$t('navigation.skills')}
         </a>
       </li>
       <li>
         <a href="#contact" class="menu-link group relative">
-          Contact
+          {$t('navigation.contact')}
         </a>
       </li>
       <li class="md:ml-4">
         <a href="https://blog.luca137.com" target="_blank" rel="noopener noreferrer" class="external-link">
-          Blog
+          {$t('navigation.blog')}
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
@@ -73,14 +92,20 @@
       </li>
       <li class="md:ml-2">
         <a href="https://newsletter.luca137.com" target="_blank" rel="noopener noreferrer" class="external-link">
-          Newsletter
+          {$t('navigation.newsletter')}
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
         </a>
       </li>
-      
     </ul>
+
+    <!-- Language Toggle -->
+    <div class="language-toggle ml-4 flex items-center">
+      <button on:click={toggleLanguage} class="language-button" aria-label="Toggle Language">
+        {toggleButtonLabel}
+      </button>
+    </div>
 
     <!-- Hamburger Menu Icon -->
     <button
@@ -248,5 +273,28 @@
   /* Accent Light for Brand Hover */
   .hover\:text-accent-light:hover {
     color: #00CC66; /* Slightly darker accent on hover */
+  }
+
+  /* Language Toggle Styles */
+  .language-toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  .language-button {
+    background: transparent;
+    border: 1px solid #00FF80;
+    color: #00FF80;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .language-button:hover {
+    background-color: #00FF80;
+    color: #1F1F1F;
   }
 </style>

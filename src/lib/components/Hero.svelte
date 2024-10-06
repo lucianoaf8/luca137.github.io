@@ -10,6 +10,8 @@
     faXbox
   } from '@fortawesome/free-brands-svg-icons';
   import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+  import { t } from 'svelte-i18n'; // Import `t` from 'svelte-i18n'
+  import '../../i18n.js'; // Initialize i18n
 
   function initializeHero() {
     console.log('Hero component initialized');
@@ -19,41 +21,42 @@
     initializeHero();
   });
 
+  // Define social links with translation keys
   const socialLinks = [
     {
       href: 'https://www.linkedin.com/in/lucianoaf8/',
       icon: faLinkedin,
-      label: 'LinkedIn',
+      key: 'socialLinks.linkedin',
       hoverColor: '#0077B5',
     },
     {
       href: 'https://github.com/lucianoaf8',
       icon: faGithub,
-      label: 'GitHub',
+      key: 'socialLinks.github',
       hoverColor: '#4078c0',
     },
     {
       href: 'mailto:luciano@luca137.com',
       icon: faEnvelope,
-      label: 'Email',
+      key: 'socialLinks.email',
       hoverColor: '#D44638',
     },
     {
       href: 'https://discord.com/users/tribore8817',
       icon: faDiscord,
-      label: 'Discord',
+      key: 'socialLinks.discord',
       hoverColor: '#5865F2',
     },
     {
       href: 'https://www.reddit.com/user/lucianoaf8/',
       icon: faReddit,
-      label: 'Reddit',
+      key: 'socialLinks.reddit',
       hoverColor: '#FF4500',
     },
     {
       href: 'https://www.xbox.com/en-CA/play/user/Tribore9015',
       icon: faXbox,
-      label: 'Xbox',
+      key: 'socialLinks.xbox',
       hoverColor: '#107C10',
     },
   ];
@@ -179,6 +182,7 @@
       on:mousemove={handleMouseMove}
       on:mouseenter={handleMouseEnter}
       on:mouseleave={handleMouseLeave}
+      role="presentation"
     >
       <!-- Canvas for Digital Rain -->
       <canvas
@@ -190,7 +194,7 @@
         <div class="hero-image relative w-32 h-32 md:w-48 md:h-48 perspective">
           <img
             src="/images/profile_image.jpeg"
-            alt="Luca in Profile"
+            alt={ $t('heroSection.imageAlt') }
             class="w-full h-full object-cover rounded-full pulsate transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-lg"
           />
         </div>
@@ -198,11 +202,11 @@
 
       <div class="hero-text text-center mt-4 relative z-10">
         <h1 class="font-orbitron text-5xl mb-4 bg-gradient-to-r from-custom-gray-3F to-custom-accent bg-clip-text text-transparent tracking-widest moving-gradient-text">
-          Luciano Almeida
+          { $t('heroSection.title') }
         </h1>
         <div class="holographic-line"></div>
         <p class="text-lg md:text-xl mb-8 text-custom-text">
-          AI Development | Data & Prompt Engineering
+          { $t('heroSection.subtitle') }
         </p>
         <div class="social-links flex flex-wrap justify-center gap-4 mt-6">
           {#each socialLinks as link}
@@ -210,12 +214,12 @@
               href="{link.href}"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="{link.label}"
+              aria-label="{ $t(link.key) }"
               class="social-link relative inline-flex items-center justify-center w-12 h-12 bg-custom-bg rounded-full transition-transform duration-300 ease hover:scale-110 hover:shadow-custom-button-hover group-hover:rotate-[360deg]"
               style="--hover-color: {link.hoverColor};"
             >
               <FontAwesomeIcon icon="{link.icon}" class="text-2xl md:text-3xl text-custom-accent transition-colors duration-300 ease-in-out" />
-              <span class="sr-only">{link.label}</span>
+              <span class="sr-only">{ $t(link.key) }</span>
             </a>
           {/each}
         </div>
@@ -225,7 +229,6 @@
 </section>
 
 <style>
-
   /* Content */
   .content {
     perspective: 1000px;
@@ -235,7 +238,7 @@
   .card {
     position: relative;
     background: linear-gradient(145deg, #2F2F2F, #3F3F3F);
-    padding: 3rem;
+    padding: 6rem;
     border-radius: 0.375rem;
     box-shadow: 20px 20px 60px #1a1a1a, -20px -20px 60px #242424;
     transform: rotateX(5deg) rotateY(-5deg);
@@ -253,7 +256,6 @@
     pointer-events: none;
     z-index: 1; /* Lower than content */
     opacity: 0.6; /* Reduced opacity */
-    
   }
 
   /* Hero Image */
@@ -329,16 +331,8 @@
     height: 200%;
   }
 
-  .social-link svg {
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 0 5px rgba(0, 255, 128, 0.5));
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-
-  /* Ensuring the card has a smooth transition */
-  .card {
-    transition: all 0.3s ease;
-    padding: 6rem;
-  }
+  /* Remove unused selector if necessary */
+  /* .social-link svg {
+    // Remove or update this block if it's not used
+  } */
 </style>

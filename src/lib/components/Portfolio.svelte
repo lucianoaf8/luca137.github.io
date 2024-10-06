@@ -1,3 +1,4 @@
+<!-- src/lib/components/Portfolio.svelte -->
 <script>
   import FlipCard from './FlipCard.svelte';
   import { onMount } from 'svelte';
@@ -11,71 +12,10 @@
     faFileCode,
     faCogs
   } from '@fortawesome/free-solid-svg-icons';
+  import { t } from 'svelte-i18n'; // Import the `t` function from svelte-i18n
+  import '../../i18n.js'; // Initialize i18n
 
-  // Sample data for projects
-  const projects = [
-    {
-      title: 'Finance Deep Analysis',
-      link: 'https://github.com/lucianoaf8/finance-deep-analysis',
-      description: 'A comprehensive analysis tool for financial data.',
-      technologies: 'Python, Pandas',
-      icon: faMoneyCheckAlt,
-    },
-    {
-      title: 'Plaid Finance Fetcher',
-      link: 'https://github.com/lucianoaf8/plaid-finance-fetcher',
-      description: 'Fetch and process financial data using the Plaid API.',
-      technologies: 'JavaScript, Plaid API',
-      icon: faFileInvoiceDollar,
-    },
-    {
-      title: 'MBNA Statement Import',
-      link: 'https://github.com/lucianoaf8/mbna-statement-import',
-      description: 'Automate the import of MBNA statements using Selenium.',
-      technologies: 'Python, Selenium',
-      icon: faFileCode,
-    },
-    {
-      title: 'Screen Scrape',
-      link: 'https://github.com/lucianoaf8/screen-scrape',
-      description: 'A tool to scrape and process screen data efficiently.',
-      technologies: 'Python, BeautifulSoup',
-      icon: faCogs,
-    },
-  ];
-
-  // Sample data for GPTs
-  const gpts = [
-    {
-      title: 'FeatureEng-GPT',
-      link: 'https://chatgpt.com/g/g-KPwV9XZGv-featureeng-gpt',
-      description: 'Friendly feature engineering bot.',
-      technologies: 'GPT-3, Python',
-      icon: faRobot,
-    },
-    {
-      title: 'AI-GPT',
-      link: 'https://chatgpt.com/g/g-vPeMWbO2f-ai-gpt',
-      description: 'Helps create AI models and projects with expert guidance.',
-      technologies: 'GPT-3, Python',
-      icon: faRobot,
-    },
-    {
-      title: 'MysqlGPT',
-      link: 'https://chatgpt.com/g/g-Vo23uO3jp-mysqlgpt',
-      description: 'User-friendly MySQL 8 expert offering database design, query creation, and optimization solutions.',
-      technologies: 'MySQL, Python',
-      icon: faDatabase,
-    },
-    {
-      title: 'PythonGPT',
-      link: 'https://chatgpt.com/g/g-UoHNGZJqK-pythongpt',
-      description: 'Python coding expert providing comprehensive solutions and project structure guidance.',
-      technologies: 'Python, GPT-3',
-      icon: faCode,
-    },
-  ];
-
+  // Function to initialize any portfolio-specific logic
   function initializePortfolio() {
     console.log('Portfolio component initialized');
   }
@@ -83,35 +23,83 @@
   onMount(() => {
     initializePortfolio();
   });
+
+  // Define projects with translation keys, links, and icons
+  const projects = [
+    {
+      key: 'portfolioSection.projects.financeDeepAnalysis',
+      link: 'https://github.com/lucianoaf8/finance-deep-analysis',
+      icon: faMoneyCheckAlt,
+    },
+    {
+      key: 'portfolioSection.projects.plaidFinanceFetcher',
+      link: 'https://github.com/lucianoaf8/plaid-finance-fetcher',
+      icon: faFileInvoiceDollar,
+    },
+    {
+      key: 'portfolioSection.projects.mbnaStatementImport',
+      link: 'https://github.com/lucianoaf8/mbna-statement-import',
+      icon: faFileCode,
+    },
+    {
+      key: 'portfolioSection.projects.screenScrape',
+      link: 'https://github.com/lucianoaf8/screen-scrape',
+      icon: faCogs,
+    },
+  ];
+
+  // Define GPTs with translation keys, links, and icons
+  const gpts = [
+    {
+      key: 'portfolioSection.gpts.featureEngGPT',
+      link: 'https://chatgpt.com/g/g-KPwV9XZGv-featureeng-gpt',
+      icon: faRobot,
+    },
+    {
+      key: 'portfolioSection.gpts.aiGPT',
+      link: 'https://chatgpt.com/g/g-vPeMWbO2f-ai-gpt',
+      icon: faRobot,
+    },
+    {
+      key: 'portfolioSection.gpts.mysqlGPT',
+      link: 'https://chatgpt.com/g/g-Vo23uO3jp-mysqlgpt',
+      icon: faDatabase,
+    },
+    {
+      key: 'portfolioSection.gpts.pythonGPT',
+      link: 'https://chatgpt.com/g/g-UoHNGZJqK-pythongpt',
+      icon: faCode,
+    },
+  ];
 </script>
 
-<section id="portfolio" class="py-20 bg-hero-gradient text-custom-text relative overflow-hidden top-[-50%] left-[-50%] w-[200%] h-[200%] bg-radial-gradient">
+<section id="portfolio" class="py-20 bg-hero-gradient text-custom-text relative overflow-hidden">
   <!-- Rotating Radial Gradient Overlay -->
   <div class="absolute inset-0 bg-radial-gradient"></div>
 
-  <div class="container mx-auto relative z-10 ">
+  <div class="container mx-auto relative z-10">
     <h2 class="text-5xl font-orbitron text-center mb-16 bg-gradient-to-r from-custom-accent to-custom-accent-dark bg-clip-text text-transparent letter-spacing-extra-wide">
-      Portfolio
+      { $t('portfolioSection.title') }
     </h2>
     <div class="flex flex-col lg:flex-row gap-16">
       <!-- Projects Section -->
       <div class="projects-section w-full lg:w-1/2">
         <h3 class="text-3xl font-orbitron mb-8 text-center lg:text-left bg-gradient-to-r from-custom-accent to-custom-accent-dark bg-clip-text text-transparent letter-spacing-extra-wide">
-          Projects
+          { $t('portfolioSection.projectsTitle') }
         </h3>
         <div class="project-list grid grid-cols-1 sm:grid-cols-2 gap-8">
           {#each projects as project}
             <FlipCard class="shadow-custom-card rotate-x-5deg rotate-y--5deg hover:rotate-x-0 hover:rotate-y-0 hover:shadow-custom-card-hover transition-transform duration-500 aspect-w-1 aspect-h-1 h-[300px]">
               <div slot="front" class="bg-card-gradient rounded-lg p-6 h-full flex flex-col justify-center items-center text-center relative">
                 <FontAwesomeIcon icon={project.icon} class="text-4xl mb-4 drop-shadow-custom-icon transition-transform duration-500 hover:animate-rotate360" />
-                <h3 class="text-2xl font-bold mb-2">{project.title}</h3>
+                <h3 class="text-2xl font-bold mb-2">{ $t(`${project.key}.title`) }</h3>
               </div>
               <div slot="back" class="bg-card-gradient rounded-lg p-6 h-full flex flex-col justify-center items-center text-center">
-                <h3 class="text-2xl font-bold mb-2">{project.title}</h3>
-                <p class="mb-2"><strong>Description:</strong> {project.description}</p>
-                <p class="mb-4"><strong>Technologies:</strong> {project.technologies}</p>
+                <h3 class="text-2xl font-bold mb-2">{ $t(`${project.key}.title`) }</h3>
+                <p class="mb-2"><strong>{ $t('portfolioSection.description') }:</strong> { $t(`${project.key}.description`) }</p>
+                <p class="mb-4"><strong>{ $t('portfolioSection.technologies') }:</strong> { $t(`${project.key}.technologies`) }</p>
                 <a href={project.link} target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-button-gradient text-custom-bg font-semibold rounded-md shadow-custom-button-hover transition-all duration-300 hover:translate-y-[-3px]">
-                  View on GitHub
+                  { $t('portfolioSection.viewOnGithub') }
                 </a>
               </div>
             </FlipCard>
@@ -122,22 +110,22 @@
       <!-- GPTs Section -->
       <div class="gpts-section w-full lg:w-1/2">
         <h3 class="text-3xl font-orbitron mb-8 text-center lg:text-left bg-gradient-to-r from-custom-accent to-custom-accent-dark bg-clip-text text-transparent letter-spacing-extra-wide">
-          GPTs
+          { $t('portfolioSection.gptsTitle') }
         </h3>
         <div class="gpt-list grid grid-cols-1 sm:grid-cols-2 gap-8">
           {#each gpts as gpt}
             <FlipCard class="shadow-custom-card rotate-x-5deg rotate-y--5deg hover:rotate-x-0 hover:rotate-y-0 hover:shadow-custom-card-hover transition-transform duration-500 aspect-w-1 aspect-h-1 h-[300px]">
               <div slot="front" class="bg-card-gradient rounded-lg p-6 h-full flex flex-col justify-center items-center text-center relative">
                 <FontAwesomeIcon icon={gpt.icon} class="text-4xl mb-4 drop-shadow-custom-icon transition-transform duration-500 hover:animate-rotate360" />
-                <h4 class="text-xl font-bold mb-2">{gpt.title}</h4>
-                <p class="mb-4 text-center">{gpt.description}</p>
+                <h4 class="text-xl font-bold mb-2">{ $t(`${gpt.key}.title`) }</h4>
+                <p class="mb-4 text-center">{ $t(`${gpt.key}.description`) }</p>
               </div>
               <div slot="back" class="bg-card-gradient rounded-lg p-6 h-full flex flex-col justify-center items-center text-center">
-                <h4 class="text-xl font-bold mb-2">{gpt.title}</h4>
-                <p class="mb-2"><strong>Description:</strong> {gpt.description}</p>
-                <p class="mb-4"><strong>Technologies:</strong> {gpt.technologies}</p>
+                <h4 class="text-xl font-bold mb-2">{ $t(`${gpt.key}.title`) }</h4>
+                <p class="mb-2"><strong>{ $t('portfolioSection.description') }:</strong> { $t(`${gpt.key}.description`) }</p>
+                <p class="mb-4"><strong>{ $t('portfolioSection.technologies') }:</strong> { $t(`${gpt.key}.technologies`) }</p>
                 <a href={gpt.link} target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-button-gradient text-custom-bg font-semibold rounded-md shadow-custom-button-hover transition-all duration-300 hover:translate-y-[-3px]">
-                  Try it out
+                  { $t('portfolioSection.tryItOut') }
                 </a>
               </div>
             </FlipCard>
@@ -159,4 +147,14 @@
   #portfolio {
     perspective: 1000px;
   }
+
+  @keyframes rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 </style>
