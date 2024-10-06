@@ -10,22 +10,30 @@
 	},
 	"type": "module",
 	"devDependencies": {
+		"@rollup/plugin-inject": "^5.0.5",
+		"@rollup/plugin-terser": "^0.4.4",
 		"@sveltejs/adapter-static": "^3.0.5",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"autoprefixer": "^10.4.20",
+		"glob": "^11.0.0",
 		"postcss": "^8.4.47",
+		"rimraf": "^6.0.1",
 		"stylelint": "^16.9.0",
 		"stylelint-config-tailwindcss": "^0.0.7",
-		"svelte": "^4.2.12",
+		"svelte": "^4.2.19",
 		"svelte-preprocess": "^6.0.3",
 		"tailwindcss": "^3.4.13",
-		"vite": "^5.1.6"
+		"vite": "^5.4.8"
 	},
 	"dependencies": {
+		"@fontsource/lato": "^5.1.0",
+		"@fontsource/orbitron": "^5.1.0",
 		"@fortawesome/fontawesome-svg-core": "^6.6.0",
 		"@fortawesome/free-brands-svg-icons": "^6.6.0",
 		"@fortawesome/free-solid-svg-icons": "^6.6.0",
 		"@fortawesome/svelte-fontawesome": "^0.2.2",
-		"@sveltejs/kit": "^2.6.1"
+		"@sveltejs/kit": "^2.6.1",
+		"@tailwindcss/forms": "^0.5.9",
+		"@tailwindcss/typography": "^0.5.15"
 	}
 }

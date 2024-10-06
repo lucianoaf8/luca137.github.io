@@ -5,66 +5,43 @@
 </script>
 
 <div
-class="flip-container perspective"
-style="width: {width}; height: {height};"
+  class="flip-container perspective group cursor-pointer"
+  style="width: {width}; height: {height};"
+  tabindex="0"
 >
-<div class="flipper transition-transform duration-600 preserve-3d">
-  <div class="front">
-    <slot name="front"></slot>
+  <div class="flipper transition-transform duration-600 preserve-3d group-hover:rotate-y-180 focus:rotate-y-180 will-change-transform">
+    <div class="front bg-card-gradient rounded-lg p-6 flex flex-col justify-center items-center text-center shadow-custom-card backface-hidden">
+      <slot name="front"></slot>
+    </div>
+    <div class="back bg-card-gradient rounded-lg p-6 flex flex-col justify-center items-center text-center shadow-custom-card rotate-y-180 backface-hidden">
+      <slot name="back"></slot>
+    </div>
   </div>
-  <div class="back rotate-180">
-    <slot name="back"></slot>
-  </div>
-</div>
 </div>
 
 <style>
-.perspective {
-  perspective: 1000px;
-}
+  .perspective {
+    perspective: 1000px;
+  }
 
-.flip-container:hover .flipper {
-  transform: rotateY(180deg);
-}
+  .flipper {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    will-change: transform;
+  }
 
-.flipper {
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+  .front,
+  .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
 
-.front,
-.back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border: 1px solid #4CE5D8;
-  border-radius: 0.5rem;
-}
-
-.front {
-  z-index: 2;
-  transform: rotateY(0deg);
-  background-color: #0D1F26;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.back {
-  transform: rotateY(180deg);
-  background-color: #0D1F26;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+  .back {
+    transform: rotateY(180deg);
+  }
 </style>

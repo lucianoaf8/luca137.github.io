@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luca137 Header Mockup</title>
+  <style>
+    /* Basic styling for containers */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #1F1F1F;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    header {
+      padding: 2rem 0;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 2.5rem;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+    }
+
+    .header-title {
+      margin-bottom: 1rem;
+      color: #00FF80;
+    }
+
+    /* 1. Gradient Text Effect */
+    .gradient-text {
+      background: linear-gradient(to right, #00FF80, #00CC66, #00FF80);
+      background-clip: text;
+      color: transparent;
+      transition: background 0.3s ease;
+    }
+
+    .gradient-text:hover {
+      background: linear-gradient(to right, #00FF80, #00CC66, #00FF80);
+    }
+
+    /* 2. Sheen Animation */
+    .sheen-text {
+      position: relative;
+      overflow: hidden;
+      color: #00FF80;
+    }
+
+    .sheen-text::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+      transition: 0.5s;
+    }
+
+    .sheen-text:hover::before {
+      left: 100%;
+    }
+
+    /* 3. Larger Text */
+    .larger-text {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #00FF80;
+    }
+
+    /* 4. Text with Outline */
+    .outline-text {
+      color: #00FF80;
+      text-shadow: 0px 0px 5px rgba(0, 255, 128, 0.7), 1px 1px 10px rgba(0, 255, 128, 0.7);
+    }
+
+    /* 5. Text Glow Effect */
+    .glow-text {
+      color: #00FF80;
+      text-shadow: 0px 0px 10px rgba(0, 255, 128, 0.8), 0px 0px 20px rgba(0, 255, 128, 1);
+    }
+
+    /* 6. Scaling on Hover */
+    .scale-text {
+      color: #00FF80;
+      transition: transform 0.3s ease;
+    }
+
+    .scale-text:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Gradient Text Effect -->
+  <header>
+    <h2 class="header-title">1. Gradient Text Effect</h2>
+    <a href="#home" class="gradient-text">Luca137</a>
+  </header>
+
+  <!-- 2. Sheen Animation -->
+  <header>
+    <h2 class="header-title">2. Sheen Animation</h2>
+    <a href="#home" class="sheen-text">Luca137</a>
+  </header>
+
+  <!-- 3. Larger Text Size -->
+  <header>
+    <h2 class="header-title">3. Larger Text Size</h2>
+    <a href="#home" class="larger-text">Luca137</a>
+  </header>
+
+  <!-- 4. Text with Outline -->
+  <header>
+    <h2 class="header-title">4. Text with Outline</h2>
+    <a href="#home" class="outline-text">Luca137</a>
+  </header>
+
+  <!-- 5. Glow Effect -->
+  <header>
+    <h2 class="header-title">5. Glow Effect</h2>
+    <a href="#home" class="glow-text">Luca137</a>
+  </header>
+
+  <!-- 6. Scaling on Hover -->
+  <header>
+    <h2 class="header-title">6. Scaling on Hover</h2>
+    <a href="#home" class="scale-text">Luca137</a>
+  </header>
+
+</body>
+</html>
